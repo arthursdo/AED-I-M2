@@ -42,7 +42,7 @@ void Listar(char* nomes){
 }
 
 void test(){
-    char temp=NULL;
+    char temp;
     gets(temp);
     printf("%c",temp);
 }

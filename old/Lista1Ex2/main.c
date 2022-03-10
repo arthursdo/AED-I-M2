@@ -12,7 +12,7 @@ int main()
 
         switch (opt) {
             case 1:
-                AdicionarNome(&nomes, &tam);
+                AdicionarNome(nomes, &tam);
                 break;
             case 2:
                 RemoverNome();
