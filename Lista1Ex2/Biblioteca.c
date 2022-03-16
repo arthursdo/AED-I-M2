@@ -23,24 +23,34 @@ int menu()
 
 char *AdicionarNome(char *nomes)
 {
+    int TamNomes=strlen(nomes);
+    char *NomesTemp=(char *) malloc(sizeof(char)*TamNomes);
+    NomesTemp[0]='\0';
+    strcat(NomesTemp,nomes);
+
     char temp[10];
     printf("\nInsira um nome: ");
     scanf("%s", temp);
     strcat(temp,"$");
 
-    char *pivo=&nomes;
-    unsigned int resize=strlen(nomes)+strlen(temp)+2;
-    //realloc da segmentation fault
-    nomes=(char *) malloc(resize*sizeof(char));
+
+    int TamTemp=strlen(temp)+1;
+    int NovoTamanho=(TamNomes+TamTemp)*sizeof(char);
+    printf("");
+    nomes=(char *) malloc(NovoTamanho);
     if(nomes==NULL){
         printf("Impossivel alocar memoria");
         exit(1);
     }
-    //free(pivo);
-    return nomes;
 
+    nomes[0]='\0';
+    strcat(nomes,NomesTemp);
+    strcat(nomes,temp);
+    //free(NomesTemp);
+    return nomes;
 }
-void RemoverNome()
+
+char *RemoverNome(char *nomes)
 {
     printf("RemoverNome\n");
 }
@@ -51,7 +61,7 @@ void Listar(char *nomes)
     }else{
         printf("Nomes:\n");
         for(int i=0;nomes[i]!='\0';i++){
-            if(nomes!='$'){
+            if(nomes[i]!='$'){
                 printf("%c",nomes[i]);
             }
             else{
@@ -60,5 +70,5 @@ void Listar(char *nomes)
 
         }
     }
-
+    printf("\n");
 }

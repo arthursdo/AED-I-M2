@@ -4,5 +4,5 @@
 
 int menu();
 char *AdicionarNome(char *nomes);
-void RemoverNome();
+char *RemoverNome(char *nomes);
 void Listar(char *nomes);

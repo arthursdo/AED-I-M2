@@ -3,28 +3,24 @@
 
 int main()
 {
-
-    setbuf(stdout, 0);
-    //char *nomes = (char *)malloc(sizeof(char));
-    char *nomes = NULL;
-    //int tam = 0;
-
     setlocale(LC_ALL, "Portuguese");
+    setbuf(stdout, 0);
 
-    // test();
+    char *nomes = (char *)malloc(sizeof(char)*2);
+    nomes[0]='\0';
 
     while (1)
     {
         switch (menu())
         {
         case 1:
-            nomes=AdicionarNome(&nomes);
+            nomes=AdicionarNome(nomes);
             break;
         case 2:
-            RemoverNome();
+            nomes=RemoverNome(nomes);
             break;
         case 3:
-            Listar(&nomes);
+            Listar(nomes);
             break;
         case 4:
             exit(0);
