@@ -1,3 +1,0 @@
-C:/Users/arthu/OneDrive/ufpel/EAD/AED I/AED-I-M2/Lista1Ex2/cmake-build-debug/CMakeFiles/Lista1Ex2.dir
-C:/Users/arthu/OneDrive/ufpel/EAD/AED I/AED-I-M2/Lista1Ex2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/arthu/OneDrive/ufpel/EAD/AED I/AED-I-M2/Lista1Ex2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
