@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MakefileBuildTargetsManager">
+    <user-build-targets>
+      <build-target name="$(bb).c $(bb).h main.c">
+        <build-configurations>
+          <build-configuration>
+            <make-targets>
+              <make-target>$(bb).c</make-target>
+              <make-target>$(bb).h</make-target>
+              <make-target>main.c</make-target>
+            </make-targets>
+          </build-configuration>
+        </build-configurations>
+      </build-target>
+    </user-build-targets>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="284518c1-38d4-4a18-9ec4-0622d30f8ae4" name="Full" defaultType="MAKE">
+      <configuration id="8929c001-647b-4a00-ae44-8d814a73775a" name="Full">
+        <build type="MAKE">
+          <make targetName="$(bb).c $(bb).h main.c" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>
