@@ -1,12 +1,13 @@
 CC = gcc
 CFLAGS = -W -Wall -std=c99 -g
 bb = biblioteca
+ag = agenda
 
 
-all:full
+all:$(ag)
 
-agenda: $(bb).o
-	$(CC) $(CFLAGS) main.c $(bb).o -o agenda.exe
+$(ag): main.c $(bb).c $(bb).h
+	$(CC) $(CFLAGS) main.c $(bb).c $(bb).h -o $(ag).exe
 
 main.o: main.c
 	$(CC) $(CFLAGS) main.c -o main.o
@@ -14,5 +15,5 @@ main.o: main.c
 $(bb).o: $(bb).c $(bb).h
 	$(CC) $(CFLAGS) $(bb).c $(bb).h -o $(bb).o
 
-full: main.c
-	$(CC) $(CFLAGS) main.c $(bb).c $(bb).h -o agenda.exe
+full.o: main.c
+	$(CC) $(CFLAGS) main.c $(bb).c $(bb).h -o $(ag).out

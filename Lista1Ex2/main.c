@@ -4,8 +4,10 @@
 int main()
 {
 
+    setbuf(stdout, 0);
+    //char *nomes = (char *)malloc(sizeof(char));
     char *nomes = NULL;
-    int tam = 0,opt;
+    //int tam = 0;
 
     setlocale(LC_ALL, "Portuguese");
 
@@ -16,13 +18,13 @@ int main()
         switch (menu())
         {
         case 1:
-            AdicionarNome(&nomes, &tam);
+            nomes=AdicionarNome(&nomes);
             break;
         case 2:
             RemoverNome();
             break;
         case 3:
-            Listar(&nomes, &tam);
+            Listar(&nomes);
             break;
         case 4:
             exit(0);

@@ -21,32 +21,44 @@ int menu()
     return opt;
 }
 
-void AdicionarNome(char **nomes, int *tam)
+char *AdicionarNome(char *nomes)
 {
-    nomes = (char *)realloc((char *)*nomes, ++(*tam));
-    if (nomes == NULL)
-    {
-        exit(69);
-    }
-    nomes[(*tam) - 1] = (char)malloc(sizeof(char) * 10 + 1);
-    printf("\nQual o nome do FDP?%d",*tam);
-
     char temp[10];
-    scanf("%s",temp);
+    printf("\nInsira um nome: ");
+    scanf("%s", temp);
+    strcat(temp,"$");
 
-    printf("ok");
+    char *pivo=&nomes;
+    unsigned int resize=strlen(nomes)+strlen(temp)+2;
+    //realloc da segmentation fault
+    nomes=(char *) malloc(resize*sizeof(char));
+    if(nomes==NULL){
+        printf("Impossivel alocar memoria");
+        exit(1);
+    }
+    //free(pivo);
+    return nomes;
 
-    strcpy(&nomes[(*tam)-1],temp);
 }
 void RemoverNome()
 {
     printf("RemoverNome\n");
 }
-void Listar(char **nomes, int *tam)
+void Listar(char *nomes)
 {
-    printf("listar nomes\n");
-    for (int i = 0; i < *tam; i++)
-    {
-        printf("%s\n", &nomes[i]);
+    if(nomes[0] == '\0'){
+        printf("Lista vazia!\n");
+    }else{
+        printf("Nomes:\n");
+        for(int i=0;nomes[i]!='\0';i++){
+            if(nomes!='$'){
+                printf("%c",nomes[i]);
+            }
+            else{
+                printf("\n");
+            }
+
+        }
     }
+
 }

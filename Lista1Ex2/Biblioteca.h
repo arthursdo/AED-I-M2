@@ -3,6 +3,6 @@
 #include <string.h>
 
 int menu();
-void AdicionarNome(char **nomes, int *tam);
+char *AdicionarNome(char *nomes);
 void RemoverNome();
-void Listar(char **nomes, int *tam);
+void Listar(char *nomes);
