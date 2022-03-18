@@ -1,5 +1,6 @@
 #include "artlib.h"
 
+//tamanho em Bytes do buffer
 int pSize=sizeof(int);
 
 int menu()
@@ -76,22 +77,36 @@ void RemoverRegistro(char *buffer){
     printf("Qual registro voce gostaria de remover?");
     scanf("%d",&rem);
 
+
+    //ate aqui ta ok
+
     //enconttra o primeiro @ na strring
     for(int i=0;i<rem-1;i++){
         buffer= BuscarSinal(buffer,'@');
     }
+    buffer+=sizeof(char);
 
-    char *temp=BuscarSinal(buffer+sizeof(char),'@');
+    char *temp=BuscarSinal(buffer,'@');
+    temp+=sizeof(char);
 
-    int pos=(temp-buffer)/sizeof(char);
+    int pos=temp-buffer;
+    int fim= strlen(temp)*sizeof(char);
 
-    memcpy(buffer++,temp++,pos);
+    //ate aqui ta ok
+    char aux=(char *)malloc(fim+1);
+    memcpy(aux,temp,fim);
+
+    //strcat(aux,"\0");
+
+    memcpy(buffer,aux,fim+sizeof(char));
 
     nPessoas--;
 
     memcpy(IniBuffer,&nPessoas,sizeof(int));
     pSize-=(pos*sizeof(char));
     IniBuffer=realloc(IniBuffer,pSize);
+    IniBuffer+=sizeof(int);
+    printf("");
 }
 void Buscar(char *buffer){
     printf("buscar\n");
@@ -109,6 +124,8 @@ void Listar(char *buffer){
 
     //reposiciona o ponteiro passando o primeiro int
     buffer+=sizeof(int);
+
+    char *cuzin=buffer;
 
     //impressão de cabeçario da função
     printf("\nForam encontrado(s) %d registro(s) na agenda:\n",nPessoas);
@@ -158,14 +175,13 @@ void test(char*buffer){
 
 //tentativa de facilitar os testes
 void carregar(void *buffer){
-    int i=3,size,sizeB;
-    char string[]={"Arthur$53999748534@Isabele$5399796777@Caroline$5399919723@"};
-    //string[strlen(string)-1]='\0';
-    size= strlen(string);
-    sizeB=sizeof(char)*size;
-    pSize=sizeB+sizeof(int);
-    buffer= realloc(buffer,sizeB+sizeof(int));
+    int i=3;
     memcpy(buffer,&i,sizeof(int));
+    char string[]={"Arthur$53999748534@Isabele$5399796777@Caroline$5399919723@"};
+    //strcat(string,"\0");
+    pSize= strlen(string)+sizeof(int)+1;
+    buffer= realloc(buffer,pSize);
     buffer+=sizeof(int);
-    memcpy(buffer,&string,sizeB);
+    memcpy(buffer,&string,strlen(string)*sizeof(char));
+
 }

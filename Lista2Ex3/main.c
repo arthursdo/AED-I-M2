@@ -10,6 +10,8 @@ int main() {
     void *pBuffer= malloc(GetPSize());
     memcpy(pBuffer,&nPessoas,sizeof(int));
 
+    carregar(pBuffer);
+
     while (1)
     {
         switch (menu())
