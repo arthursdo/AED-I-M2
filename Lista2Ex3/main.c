@@ -1,6 +1,37 @@
-#include <stdio.h>
+#include <locale.h>
+#include "artlib.h"
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    setlocale(LC_ALL, "");
+    setbuf(stdout, 0);
+
+    int nPessoas=0;
+
+    void *pBuffer= malloc(GetPSize());
+    memcpy(pBuffer,&nPessoas,sizeof(int));
+
+    while (1)
+    {
+        switch (menu())
+        {
+            case 1:
+                AdicionarRegistro(pBuffer);
+                break;
+            case 2:
+                pBuffer=RemoverRegistro(pBuffer);
+                break;
+            case 3:
+                Buscar(pBuffer);
+                break;
+            case 4:
+                Listar(pBuffer);
+                break;
+            case 5:
+                exit(0);
+                break;
+            case 6:
+                test(pBuffer);
+                break;
+        }
+    }
 }
