@@ -18,7 +18,7 @@ int main() {
                 AdicionarRegistro(pBuffer);
                 break;
             case 2:
-                pBuffer=RemoverRegistro(pBuffer);
+                RemoverRegistro(pBuffer);
                 break;
             case 3:
                 Buscar(pBuffer);
@@ -30,7 +30,7 @@ int main() {
                 exit(0);
                 break;
             case 6:
-                test(pBuffer);
+                carregar(pBuffer);
                 break;
         }
     }

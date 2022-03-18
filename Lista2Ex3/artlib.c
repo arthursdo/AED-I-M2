@@ -60,28 +60,62 @@ void AdicionarRegistro(char *buffer){
     memcpy(buffer,&TempConc, strlen(TempConc)+1);
 }
 
-char *RemoverRegistro(void *buffer){
-    printf("Remover\n");
-    return buffer;
+void RemoverRegistro(char *buffer){
+    Listar(buffer);
+
+    //converte n pessoas pra int
+    int nPessoas;
+    memcpy(&nPessoas,buffer,sizeof(int));
+
+    void *IniBuffer=buffer;
+    //reposiciona o ponteiro passando o primeiro int
+    buffer+=sizeof(int);
+
+    //Solicita entrada do usuario
+    int rem;
+    printf("Qual registro voce gostaria de remover?");
+    scanf("%d",&rem);
+
+    //enconttra o primeiro @ na strring
+    for(int i=0;i<rem-1;i++){
+        buffer= BuscarSinal(buffer,'@');
+    }
+
+    char *temp=BuscarSinal(buffer+sizeof(char),'@');
+
+    int pos=(temp-buffer)/sizeof(char);
+
+    memcpy(buffer++,temp++,pos);
+
+    nPessoas--;
+
+    memcpy(IniBuffer,&nPessoas,sizeof(int));
+    pSize-=(pos*sizeof(char));
+    IniBuffer=realloc(IniBuffer,pSize);
 }
 void Buscar(char *buffer){
     printf("buscar\n");
 }
 void Listar(char *buffer){
+    //converte n pessoas pra int
     int nPessoas;
     memcpy(&nPessoas,buffer,sizeof(int));
 
+    //testa se agenda já foi populada
     if(nPessoas==0){
-        printf("Não foi encontrada nenhuma registro na agenda!\n");
+        printf("Não foi encontrado nenhuma registro na agenda!\n");
         return;
     }
 
+    //reposiciona o ponteiro passando o primeiro int
     buffer+=sizeof(int);
 
+    //impressão de cabeçario da função
     printf("\nForam encontrado(s) %d registro(s) na agenda:\n",nPessoas);
     nPessoas=1;
     printf("\n\t%d\t",nPessoas);
 
+    //impressão dos dados
     for(int i=0;buffer[i]!='\0';i++){
         if(buffer[i]=='@'){
             if(buffer[i+1]=='\0'){
@@ -103,6 +137,7 @@ int GetPSize(){
     return pSize;
 }
 void *BuscarSinal(char *buffer,char sinal){
+    //retorna o endereço no buffer do char solicitado
    for(int i=0;buffer[i]!='\0';i++) {
        if(buffer[i]==sinal){
            return &buffer[i];
@@ -112,11 +147,25 @@ void *BuscarSinal(char *buffer,char sinal){
    exit(2);
 }
 
+//apenas alguns testes com ponteiros
 void test(char*buffer){
-    //printf("%c\n", BuscarSinal(buffer,'@'));
     printf("\n Address of a = %u ", buffer) ;
     buffer+=sizeof(int);
     printf("\n Address of a = %u ", buffer) ;
     printf("\n Value of a = %u ",  BuscarSinal(buffer,'@')) ;
     printf("\n Value of b = %c \n",  BuscarSinal(buffer,'@')) ;
+}
+
+//tentativa de facilitar os testes
+void carregar(void *buffer){
+    int i=3,size,sizeB;
+    char string[]={"Arthur$53999748534@Isabele$5399796777@Caroline$5399919723@"};
+    //string[strlen(string)-1]='\0';
+    size= strlen(string);
+    sizeB=sizeof(char)*size;
+    pSize=sizeB+sizeof(int);
+    buffer= realloc(buffer,sizeB+sizeof(int));
+    memcpy(buffer,&i,sizeof(int));
+    buffer+=sizeof(int);
+    memcpy(buffer,&string,sizeB);
 }
