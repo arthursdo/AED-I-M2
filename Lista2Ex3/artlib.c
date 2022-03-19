@@ -69,6 +69,7 @@ void RemoverRegistro(char *buffer){
     memcpy(&nPessoas,buffer,sizeof(int));
 
     void *IniBuffer=buffer;
+
     //reposiciona o ponteiro passando o primeiro int
     buffer+=sizeof(int);
 
@@ -77,36 +78,32 @@ void RemoverRegistro(char *buffer){
     printf("Qual registro voce gostaria de remover?");
     scanf("%d",&rem);
 
-
-    //ate aqui ta ok
-
-    //enconttra o primeiro @ na strring
-    for(int i=0;i<rem-1;i++){
-        buffer= BuscarSinal(buffer,'@');
+    //caso queira remover a primeira entrada o ponteiro segue igual
+    if(rem!=1){
+        //enconttra o primeiro @ na strring
+        for(int i=0;i<rem-1;i++){
+            buffer=BuscarSinal(buffer,'@');
+        }
+        buffer+=sizeof(char);
     }
-    buffer+=sizeof(char);
 
-    char *temp=BuscarSinal(buffer,'@');
-    temp+=sizeof(char);
+    //calcula posição do proximo @
+    char *temp=BuscarSinal(buffer,'@')+sizeof(char);
+    char *aux=(char *) malloc(strlen(temp)*sizeof(char )+1);
+    int strTam= strlen(temp);
 
-    int pos=temp-buffer;
-    int fim= strlen(temp)*sizeof(char);
+    
+    memcpy(aux,temp, strTam*sizeof(char)+1);
+    memcpy(buffer,aux,strTam*sizeof(char)+1);
 
-    //ate aqui ta ok
-    char aux=(char *)malloc(fim+1);
-    memcpy(aux,temp,fim);
+    free(aux);
 
-    //strcat(aux,"\0");
-
-    memcpy(buffer,aux,fim+sizeof(char));
+    pSize= (strlen(IniBuffer+sizeof(int))*sizeof(char))+sizeof(int)+1;
 
     nPessoas--;
-
     memcpy(IniBuffer,&nPessoas,sizeof(int));
-    pSize-=(pos*sizeof(char));
-    IniBuffer=realloc(IniBuffer,pSize);
-    IniBuffer+=sizeof(int);
-    printf("");
+    IniBuffer= realloc(IniBuffer,pSize);
+
 }
 void Buscar(char *buffer){
     printf("buscar\n");
@@ -178,10 +175,17 @@ void carregar(void *buffer){
     int i=3;
     memcpy(buffer,&i,sizeof(int));
     char string[]={"Arthur$53999748534@Isabele$5399796777@Caroline$5399919723@"};
-    //strcat(string,"\0");
+    //+1 para o /0
     pSize= strlen(string)+sizeof(int)+1;
     buffer= realloc(buffer,pSize);
+
+    //testa disponibilidade de memoria
+    if(buffer==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
+
+    //move o ponteiro em para o inicio da string
     buffer+=sizeof(int);
     memcpy(buffer,&string,strlen(string)*sizeof(char));
-
 }
