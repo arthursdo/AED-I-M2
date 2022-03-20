@@ -10,27 +10,10 @@ int main() {
     void *pBuffer= malloc(GetPSize());
     memcpy(pBuffer,&nPessoas,sizeof(int));
 
-    //carregar(pBuffer);
+    carregar(pBuffer);
 
     while (1)
     {
-        switch (menu())
-        {
-            case 1:
-                AdicionarRegistro(pBuffer);
-                break;
-            case 2:
-                RemoverRegistro(pBuffer);
-                break;
-            case 3:
-                Buscar(pBuffer);
-                break;
-            case 4:
-                Listar(pBuffer);
-                break;
-            case 5:
-                exit(0);
-                break;
-        }
+        menu(pBuffer);
     }
 }
