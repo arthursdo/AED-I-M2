@@ -17,22 +17,25 @@ int menu()
     {
         fflush(stdin);
         scanf("%d", &opt);
-        if (opt < 1 || opt > 6)
+        if (opt < 1 || opt > 5)
         {
             printf("opção invalida! Tente novamente\n");
         }
-    } while (opt < 1 || opt > 6);
+    } while (opt < 1 || opt > 5);
     return opt;
 }
 void AdicionarRegistro(char *buffer){
-    int nPessoas;
-    memcpy(&nPessoas,buffer,sizeof(int));
-
     //Variavel auxiliar para leitura do nome
-    char TempNome[20];
+    char TempNome[15];
     printf("\nInsira um nome: ");
     scanf("%s", TempNome);
     strcat(TempNome,"$");
+
+    //Variavel auxiliar para leitura da idade
+    char TempIdade[4];
+    printf("\nInsira uma idade: ");
+    scanf("%s", TempIdade);
+    strcat(TempNome,"*");
 
     //Variavel auxiliar para leitura do Telefone
     char TempTel[20];
@@ -44,7 +47,9 @@ void AdicionarRegistro(char *buffer){
     char TempConc[40];
     TempConc[0]='\0';
     strcat(TempConc,TempNome);
+    strcat(TempConc,TempIdade);
     strcat(TempConc,TempTel);
+
 
     //Realoca pBuffer
     int TempPSize=GetPSize();
@@ -54,31 +59,52 @@ void AdicionarRegistro(char *buffer){
         printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
         exit(1);
     }
+
+    //Atualiza nPessoas
+    int nPessoas;
+    memcpy(&nPessoas,buffer,sizeof(int));
     nPessoas++;
     memcpy(buffer,&nPessoas,sizeof(int));
 
     buffer+=TempPSize;
     memcpy(buffer,&TempConc, strlen(TempConc)+1);
+
 }
 
 void RemoverRegistro(char *buffer){
-    Listar(buffer);
+    //salva primeiro endereço do ponteiro
+    void *IniBuffer=buffer;
 
     //converte n pessoas pra int
     int nPessoas;
     memcpy(&nPessoas,buffer,sizeof(int));
 
-    void *IniBuffer=buffer;
+    //testa se agenda já foi populada
+    if(nPessoas==0){
+        printf("Não foi encontrado nenhuma registro na agenda!\n");
+        return;
+    }
+
+    //reproveitamento da função listar
+    Listar(buffer);
 
     //reposiciona o ponteiro passando o primeiro int
     buffer+=sizeof(int);
 
-    //Solicita entrada do usuario
+    //Solicita e trata a entrada do usuario
     int rem;
     printf("Qual registro voce gostaria de remover?");
-    scanf("%d",&rem);
+    do
+    {
+        fflush(stdin);
+        scanf("%d",&rem);
+        if (rem < 1 || rem > nPessoas)
+        {
+            printf("opção invalida! Tente novamente\n");
+        }
+    } while (rem < 1 || rem > nPessoas);
 
-    //caso queira remover a primeira entrada o ponteiro segue igual
+    //caso queira remover a primeira entrada o ponteiro segue no mesmo endereço
     if(rem!=1){
         //enconttra o primeiro @ na strring
         for(int i=0;i<rem-1;i++){
@@ -88,19 +114,30 @@ void RemoverRegistro(char *buffer){
     }
 
     //calcula posição do proximo @
-    char *temp=BuscarSinal(buffer,'@')+sizeof(char);
-    char *aux=(char *) malloc(strlen(temp)*sizeof(char )+1);
-    int strTam= strlen(temp);
+    char *temp = BuscarSinal(buffer, '@');
 
-    
-    memcpy(aux,temp, strTam*sizeof(char)+1);
-    memcpy(buffer,aux,strTam*sizeof(char)+1);
+    if(rem!=nPessoas) {
+        temp+=sizeof(char);
+        char *aux = (char *) malloc(strlen(temp) * sizeof(char) + 1);
+        int strTam = strlen(temp);
 
-    free(aux);
 
-    pSize= (strlen(IniBuffer+sizeof(int))*sizeof(char))+sizeof(int)+1;
+        memcpy(aux, temp, strTam * sizeof(char) + 1);
+        memcpy(buffer, aux, strTam * sizeof(char) + 1);
+
+        free(aux);
+    }else{
+        temp[1]='\0';
+    }
+
 
     nPessoas--;
+    if(nPessoas!=0) {
+        pSize = (strlen(IniBuffer + sizeof(int)) * sizeof(char)) + sizeof(int) + 1;
+    } else{
+        pSize=sizeof(int);
+    }
+
     memcpy(IniBuffer,&nPessoas,sizeof(int));
     IniBuffer= realloc(IniBuffer,pSize);
 
@@ -122,8 +159,6 @@ void Listar(char *buffer){
     //reposiciona o ponteiro passando o primeiro int
     buffer+=sizeof(int);
 
-    char *cuzin=buffer;
-
     //impressão de cabeçario da função
     printf("\nForam encontrado(s) %d registro(s) na agenda:\n",nPessoas);
     nPessoas=1;
@@ -138,7 +173,7 @@ void Listar(char *buffer){
                 printf("\n\t%d\t",++nPessoas);
             }
         }
-        else if(buffer[i]=='$'){
+        else if(buffer[i]=='$' || buffer[i]=='*'){
             printf("\t");
         } else{
             printf("%c",buffer[i]);
@@ -158,7 +193,7 @@ void *BuscarSinal(char *buffer,char sinal){
        }
     }
    printf("Erro!");
-   exit(2);
+   return NULL;
 }
 
 //apenas alguns testes com ponteiros

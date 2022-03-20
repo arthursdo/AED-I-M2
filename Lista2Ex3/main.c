@@ -10,7 +10,7 @@ int main() {
     void *pBuffer= malloc(GetPSize());
     memcpy(pBuffer,&nPessoas,sizeof(int));
 
-    carregar(pBuffer);
+    //carregar(pBuffer);
 
     while (1)
     {
@@ -30,9 +30,6 @@ int main() {
                 break;
             case 5:
                 exit(0);
-                break;
-            case 6:
-                carregar(pBuffer);
                 break;
         }
     }
