@@ -27,7 +27,6 @@ int menu()
 }
 void *AdicionarRegistro(void *buffer){
     fflush(stdin);
-
     //Variavel auxiliar para leitura do nome
     char TempNome[15];
     printf("\nInsira um nome: ");
@@ -54,12 +53,14 @@ void *AdicionarRegistro(void *buffer){
     strcat(TempConc,TempTel);
 
     //Realoca pBuffer
-    int TempPSize=GetPSize();
-    pSize+=sizeof(char)* strlen(TempConc);
-    printf("ok 3\n");
-    //buffer=realloc(buffer, pSize+sizeof(char));
-    buffer=realloc(buffer, sizeof(int)+((strlen(TempConc)+ strlen(buffer+sizeof(int))+1)*sizeof(char)));
-    printf("ok realloc\n");
+    int TempPSize;
+    if(pSize>sizeof(int)+2*sizeof(char)){
+        TempPSize=pSize;
+    } else{
+        TempPSize=pSize-sizeof(char);
+    }
+    pSize=sizeof(int)+((strlen(TempConc)+ strlen(buffer+sizeof(int))+1)*sizeof(char));
+    buffer=realloc(buffer, pSize);
     if(buffer==NULL){
         printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
         exit(1);
@@ -70,24 +71,22 @@ void *AdicionarRegistro(void *buffer){
     memcpy(&nPessoas,buffer,sizeof(int));
     nPessoas++;
     memcpy(buffer,&nPessoas,sizeof(int));
-    printf("ok cpy %d\n",nPessoas);
-    buffer+=TempPSize;
-    memcpy(buffer,&TempConc, strlen(TempConc)+sizeof(char));
-    //char *aux=buffer+sizeof(int);
-    //strcpy(aux,TempConc);
+    char *aux=buffer+TempPSize;
+    strcpy(aux,TempConc);
+    return buffer;
 }
-void RemoverRegistro(char *buffer){
+void *RemoverRegistro(void *buffer){
     //converte n pessoas pra int
     int nPessoas= ChecaPopulacao(buffer);
+    if(nPessoas==0){
+        return buffer;
+    }
 
-    //salva primeiro endereço do ponteiro
-    void *IniBuffer=buffer;
+    //Ponteiro auxiliar
+    char *aux=buffer+sizeof(int);
 
     //reproveitamento da função listar
     Listar(buffer);
-
-    //reposiciona o ponteiro passando o primeiro int
-    buffer+=sizeof(int);
 
     //Solicita e trata a entrada do usuario
     int rem;
@@ -106,47 +105,52 @@ void RemoverRegistro(char *buffer){
     if(rem!=1){
         //enconttra o primeiro @ na strring
         for(int i=0;i<rem-1;i++){
-            buffer=BuscarSinal(buffer,'@');
+            aux=BuscarSinal(aux,'@');
         }
-        buffer+=sizeof(char);
+        aux+=sizeof(char);
     }
 
     //calcula posição do proximo @
-    char *temp = BuscarSinal(buffer, '@');
+    char *temp = BuscarSinal(aux, '@');
 
-    if(rem!=nPessoas) {
+    if(rem==1&&nPessoas==1) {
+        temp[0] = '\0';
+        temp[1] = '\0';
+    } else if(rem!=nPessoas) {
         temp+=sizeof(char);
-        char *aux = (char *) malloc(strlen(temp) * sizeof(char) + 1);
-        int strTam = strlen(temp);
+        char *aux2 = (char *) malloc(strlen(temp) * sizeof(char) + 1);
 
+        strcpy(aux2,temp);
+        strcpy(aux,aux2);
 
-        memcpy(aux, temp, strTam * sizeof(char) + 1);
-        memcpy(buffer, aux, strTam * sizeof(char) + 1);
-
-        free(aux);
-    }else{
+        free(aux2);
+    } else if(rem==nPessoas){
         temp[1]='\0';
     }
 
-
     nPessoas--;
     if(nPessoas!=0) {
-        pSize = (strlen(IniBuffer + sizeof(int)) * sizeof(char)) + sizeof(int) + 1;
+        pSize = (strlen(buffer + sizeof(int)) * sizeof(char)) + sizeof(int) + 1;
     } else{
-        pSize=sizeof(int);
+        pSize=sizeof(int)+sizeof(char);
+        //strcpy(buffer+sizeof(int),"\0");
     }
 
-    IniBuffer= realloc(IniBuffer,pSize);
+    buffer= realloc(buffer,pSize);
     if(buffer==NULL){
         printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
         exit(1);
     }
 
-    memcpy(IniBuffer,&nPessoas,sizeof(int));
+    memcpy(buffer,&nPessoas,sizeof(int));
+    return buffer;
 }
-void Buscar(char *buffer){
+void Buscar(void *buffer){
     //converte n pessoas pra int
     int nPessoas= ChecaPopulacao(buffer);
+    if(nPessoas==0){
+        return;
+    }
 
     //Variavel auxiliar para leitura do nome
     char TempNome[15];
@@ -183,37 +187,37 @@ void Buscar(char *buffer){
     printf("\n");
 
 }
-void Listar(char *buffer){
+void Listar(void *buffer){
     //converte n pessoas pra int
-    int nPessoas= ChecaPopulacao(buffer);
+    int nPessoas=ChecaPopulacao(buffer);
+    if(nPessoas==0){
+        return;
+    }
 
     //reposiciona o ponteiro passando o primeiro int
-    buffer+=sizeof(int);
+    char *aux=buffer+sizeof(int);
 
     //impressão de cabeçario da função
     printf("\nForam encontrado(s) %d registro(s) na agenda:\n",nPessoas);
     nPessoas=1;
-    printf("\n\t%d\t",nPessoas);
+    printf("\t%d\t",nPessoas);
 
     //impressão dos dados
-    for(int i=0;buffer[i]!='\0';i++){
-        if(buffer[i]=='@'){
-            if(buffer[i+1]=='\0'){
+    for(int i=0;aux[i]!='\0';i++){
+        if(aux[i]=='@'){
+            if(aux[i+1]=='\0'){
                 printf("\n");
             }else {
                 printf("\n\t%d\t",++nPessoas);
             }
         }
-        else if(buffer[i]=='$' || buffer[i]=='*'){
+        else if(aux[i]=='$' || aux[i]=='*'){
             printf("\t");
         } else{
-            printf("%c",buffer[i]);
+            printf("%c",aux[i]);
         }
     }
     printf("\n \t\tFIM\n");
-}
-int GetPSize(){
-    return pSize;
 }
 void *BuscarSinal(char *buffer,char sinal){
     //retorna o endereço no buffer do char solicitado
@@ -229,47 +233,37 @@ int ChecaPopulacao(void *buffer){
     //converte n pessoas pra int
     int nPessoas=65;
     memcpy(&nPessoas,buffer,sizeof(int));
-    printf("chec %d\n",nPessoas);
 
     //testa se agenda já foi populada
     if(nPessoas==0){
         printf("Não foi encontrado nenhuma registro na agenda!\n");
-        menu(buffer);
     }
 
     return nPessoas;
 }
 void *IniciaPBuffer(){
     int nPessoas=0;
-    char ini='\0';
+    char *ini;
     void *pBuffer= malloc(pSize+sizeof(char));
     if(pBuffer==NULL){
         printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
         exit(1);
     }
     memcpy(pBuffer,&nPessoas,sizeof(int));
-    memcpy(pBuffer+sizeof(int),&ini,sizeof(char));
+    ini=pBuffer+sizeof(int);
+    ini[0]='\0';
 
     return pBuffer;
 }
 
-
-//apenas alguns testes com ponteiros
-void test(char*buffer){
-    printf("\n Address of a = %u ", buffer) ;
-    buffer+=sizeof(int);
-    printf("\n Address of a = %u ", buffer) ;
-    printf("\n Value of a = %u ",  BuscarSinal(buffer,'@')) ;
-    printf("\n Value of b = %c \n",  BuscarSinal(buffer,'@')) ;
-}
 //tentativa de facilitar os testes
-void carregar(void *buffer){
+void *carregar(void *buffer){
     int i=3;
     memcpy(buffer,&i,sizeof(int));
     char string[]={"Arthur$23*53999748534@Isabele$23*5399796777@Caroline$23*5399919723@"};
     //+1 para o /0
-    pSize= strlen(string)+sizeof(int)+1;
-    buffer= realloc(buffer,pSize);
+    pSize= strlen(string)+sizeof(int)+sizeof(char);
+    buffer=realloc(buffer,pSize);
 
     //testa disponibilidade de memoria
     if(buffer==NULL){
@@ -278,6 +272,10 @@ void carregar(void *buffer){
     }
 
     //move o ponteiro em para o inicio da string
-    buffer+=sizeof(int);
-    memcpy(buffer,&string,strlen(string)*sizeof(char));
+    //buffer+=sizeof(int);
+    char *aux=buffer+sizeof(int);
+    //memcpy(aux,string,strlen(string)*sizeof(char));
+    strcpy(aux,string);
+
+    return buffer;
 }

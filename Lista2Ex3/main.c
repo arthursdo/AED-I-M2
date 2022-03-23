@@ -8,17 +8,17 @@ int main() {
     setbuf(stdout, 0);
     //Inicializa o ponteiro
     void *pBuffer=IniciaPBuffer();
-    //carregar(pBuffer);
+    pBuffer=carregar(pBuffer);
 
     while (1)
     {
         switch (menu())
         {
             case 1:
-                AdicionarRegistro(pBuffer);
+                pBuffer=AdicionarRegistro(pBuffer);
                 break;
             case 2:
-                RemoverRegistro(pBuffer);
+                pBuffer=RemoverRegistro(pBuffer);
                 break;
             case 3:
                 Buscar(pBuffer);
@@ -27,7 +27,7 @@ int main() {
                 Listar(pBuffer);
                 break;
             case 5:
-                //exit(0);
+                exit(0);
                 break;
         }
     }

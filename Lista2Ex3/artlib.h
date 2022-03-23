@@ -4,13 +4,11 @@
 
 int menu();
 void *AdicionarRegistro(void *buffer);
-void RemoverRegistro(char *buffer);
-void Buscar(char *buffer);
-void Listar(char *buffer);
-int GetPSize();
+void *RemoverRegistro(void *buffer);
+void Buscar(void *buffer);
+void Listar(void *buffer);
 void *BuscarSinal(char *buffer,char sinal);
 int ChecaPopulacao(void *buffer);
 void *IniciaPBuffer();
 
-void test(char*buffer);
-void carregar(void *buffer);
+void *carregar(void *buffer);
