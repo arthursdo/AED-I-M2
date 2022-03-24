@@ -1,0 +1,50 @@
+Dr. Memory version 2.5.0 build 0 built on Oct 18 2021 03:01:22
+Windows version: WinVer=105;Rel=2009;Build=22000;Edition=Professional
+Dr. Memory results for pid 17108: "Lista2Ex3.exe"
+Application cmdline: "Lista2Ex3.exe"
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+Recorded 1 suppression(s) from user C:\Users\arthu\OneDrive\ufpel\EAD\AED I\AED-I-M2\Lista2Ex3\cmake-build-debug\suppress.txt
+
+Error #1: POSSIBLE LEAK 31 direct bytes 0x00000255f66b01c0-0x00000255f66b01df + 0 indirect bytes
+# 0 replace_malloc                   [d:\a\drmemory\drmemory\common\alloc_replace.c:2580]
+# 1 msvcrt.dll!malloc_crt
+# 2 msvcrt.dll!_setargv  
+# 3 msvcrt.dll!_getmainargs
+# 4 pre_cpp_init 
+# 5 msvcrt.dll!initterm  
+# 6 __tmainCRTStartup
+# 7 .l_start     
+# 8 ntdll.dll!RtlUserThreadStart
+
+Error #2: LEAK 5 direct bytes 0x00000255f66b2f90-0x00000255f66b2f95 + 0 indirect bytes
+# 0 replace_realloc                 [d:\a\drmemory\drmemory\common\alloc_replace.c:2672]
+# 1 AdicionarRegistro
+# 2 main         
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+	   275x: Error #2:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      1 unique,     1 total,      5 byte(s) of leak(s)
+      1 unique,     1 total,     31 byte(s) of possible leak(s)
+ERRORS IGNORED:
+     50 potential error(s) (suspected false positives)
+         (details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\potential_errors.txt)
+      3 potential leak(s) (suspected false positives)
+         (details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\potential_errors.txt)
+    275 user-suppressed,     0 default-suppressed error(s)
+      0 user-suppressed,     0 default-suppressed leak(s)
+    116 unique,   120 total,   2461 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\results.txt

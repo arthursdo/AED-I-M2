@@ -1,0 +1,854 @@
+Dr. Memory version 2.5.0 build 0 built on Oct 18 2021 03:01:22
+Dr. Memory errors that are likely to be false positives, for pid 17108: "Lista2Ex3.exe"
+These errors matched the blocklist ',C:\Windows*.d??' for 4 frames.
+Run with -lib_blocklist_frames 0 to treat these as regular errors.
+If these are all false positives and your focus is unaddressable errors, consider running with -light to skip all uninitialized reads and leaks for higher performance.
+
+Potential Error #1: UNINITIALIZED READ: reading 0x000000a91abfee02-0x000000a91abfee04 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString  +0x14e    (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>)
+# 1 KERNELBASE.dll!GetLocaleInfoHelper    +0xaca    (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>)
+# 2 KERNELBASE.dll!GetLocaleInfoW         +0x9e     (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>)
+# 3 msvcrt.dll!__crtGetLocaleInfoA_stat
+# 4 msvcrt.dll!expandlocale
+# 5 msvcrt.dll!_init_monetary
+# 6 msvcrt.dll!_setlocale_set_cat
+# 7 msvcrt.dll!_setlocale_nolock
+# 8 msvcrt.dll!setlocale 
+# 9 main         
+Note: @0:00:00.244 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+
+Potential Error #2: UNINITIALIZED READ: reading 0x000000a91abfede2-0x000000a91abfede4 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString  +0x14e    (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>)
+# 1 KERNELBASE.dll!GetLocaleInfoHelper    +0xaca    (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>)
+# 2 KERNELBASE.dll!GetLocaleInfoW         +0x9e     (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>)
+# 3 msvcrt.dll!__crtGetLocaleInfoA_stat
+# 4 msvcrt.dll!_crtGetLocaleInfoA
+# 5 msvcrt.dll!_getlocaleinfo
+# 6 msvcrt.dll!_init_monetary
+# 7 msvcrt.dll!_setlocale_set_cat
+# 8 msvcrt.dll!_setlocale_nolock
+# 9 msvcrt.dll!setlocale 
+#10 main         
+Note: @0:00:00.245 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+
+Potential Error #3: UNINITIALIZED READ: reading 0x000000a91abfeee2-0x000000a91abfeee4 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString+0x14e    (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>)
+# 1 KERNELBASE.dll!GetLocaleInfoHelper +0xaca    (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>)
+# 2 KERNELBASE.dll!GetLocaleInfoW      +0x9e     (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>)
+# 3 msvcrt.dll!_getlocaleinfo
+# 4 msvcrt.dll!_init_monetary
+# 5 msvcrt.dll!_setlocale_set_cat
+# 6 msvcrt.dll!_setlocale_nolock
+# 7 msvcrt.dll!setlocale 
+# 8 main         
+Note: @0:00:00.261 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+
+Potential Error #4: UNINITIALIZED READ: reading 0x000000a91abfeee2-0x000000a91abfeee4 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString+0x14e    (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>)
+# 1 KERNELBASE.dll!GetLocaleInfoHelper +0xaca    (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>)
+# 2 KERNELBASE.dll!GetLocaleInfoW      +0x9e     (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>)
+# 3 msvcrt.dll!_getlocaleinfo
+# 4 msvcrt.dll!_init_monetary
+# 5 msvcrt.dll!_setlocale_set_cat
+# 6 msvcrt.dll!_setlocale_nolock
+# 7 msvcrt.dll!setlocale 
+# 8 main         
+Note: @0:00:00.261 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+
+Potential Error #5: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.345 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #6: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.345 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #7: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.389 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #8: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.390 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #9: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.418 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #10: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.418 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #11: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.444 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #12: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.445 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #13: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.469 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #14: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.469 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #15: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.482 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #16: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 menu         
+#10 main         
+Note: @0:00:00.482 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #17: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 AdicionarRegistro
+#10 main         
+Note: @0:00:13.475 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #18: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 AdicionarRegistro
+#10 main         
+Note: @0:00:13.475 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #19: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 AdicionarRegistro
+#10 main         
+Note: @0:00:16.867 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #20: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 AdicionarRegistro
+#10 main         
+Note: @0:00:16.867 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #21: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 AdicionarRegistro
+#10 main         
+Note: @0:00:18.524 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #22: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 AdicionarRegistro
+#10 main         
+Note: @0:00:18.524 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #23: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:21.193 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #24: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:21.194 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #25: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:21.253 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #26: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:21.253 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #27: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __pformat_putchars
+# 7 __mingw_pformat
+# 8 __mingw_vfprintf
+# 9 printf       
+#10 Listar       
+#11 main         
+Note: @0:00:21.261 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #28: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __pformat_putchars
+# 7 __mingw_pformat
+# 8 __mingw_vfprintf
+# 9 printf       
+#10 Listar       
+#11 main         
+Note: @0:00:21.261 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #29: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:21.284 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #30: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:21.284 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #31: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:47.942 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #32: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 main         
+Note: @0:00:47.942 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #33: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Buscar       
+#10 main         
+Note: @0:00:53.568 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #34: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Buscar       
+#10 main         
+Note: @0:00:53.568 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #35: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __pformat_putchars
+# 7 __mingw_pformat
+# 8 __mingw_vfprintf
+# 9 printf       
+#10 Buscar       
+#11 main         
+Note: @0:00:58.540 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #36: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __pformat_putchars
+# 7 __mingw_pformat
+# 8 __mingw_vfprintf
+# 9 printf       
+#10 Buscar       
+#11 main         
+Note: @0:00:58.540 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #37: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:23.864 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #38: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:23.864 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #39: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:23.922 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #40: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:23.922 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #41: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __pformat_putchars
+# 7 __mingw_pformat
+# 8 __mingw_vfprintf
+# 9 printf       
+#10 Listar       
+#11 RemoverRegistro
+#12 main         
+Note: @0:01:23.928 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #42: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __pformat_putchars
+# 7 __mingw_pformat
+# 8 __mingw_vfprintf
+# 9 printf       
+#10 Listar       
+#11 RemoverRegistro
+#12 main         
+Note: @0:01:23.928 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #43: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:23.952 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #44: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:23.952 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #45: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:24.016 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #46: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 Listar       
+#10 RemoverRegistro
+#11 main         
+Note: @0:01:24.017 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #47: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 RemoverRegistro
+#10 main         
+Note: @0:01:24.028 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #48: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 RemoverRegistro
+#10 main         
+Note: @0:01:24.028 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #49: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x24     (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 ChecaPopulacao
+#10 Listar       
+#11 main         
+Note: @0:01:42.742 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+
+Potential Error #50: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte+0x246    (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>)
+# 1 msvcrt.dll!write_nolock
+# 2 msvcrt.dll!write     
+# 3 msvcrt.dll!flsbuf    
+# 4 msvcrt.dll!fputc     
+# 5 __pformat_putc
+# 6 __mingw_pformat
+# 7 __mingw_vfprintf
+# 8 printf       
+# 9 ChecaPopulacao
+#10 Listar       
+#11 main         
+Note: @0:01:42.743 in thread 10536
+Note: instruction: test   %edi %edi
+
+Potential Error #51: POSSIBLE LEAK 768 direct bytes 0x00000255f66b04f0-0x00000255f66b07f0 + 0 indirect bytes
+# 0 replace_calloc                   [d:\a\drmemory\drmemory\common\alloc_replace.c:2620]
+# 1 msvcrt.dll!calloc_crt
+# 2 msvcrt.dll!_init_ctype
+# 3 msvcrt.dll!_setlocale_set_cat
+# 4 msvcrt.dll!_setlocale_nolock
+# 5 msvcrt.dll!setlocale 
+# 6 main         
+
+Potential Error #52: POSSIBLE LEAK 384 direct bytes 0x00000255f66b0810-0x00000255f66b0990 + 0 indirect bytes
+# 0 replace_calloc                   [d:\a\drmemory\drmemory\common\alloc_replace.c:2620]
+# 1 msvcrt.dll!calloc_crt
+# 2 msvcrt.dll!_init_ctype
+# 3 msvcrt.dll!_setlocale_set_cat
+# 4 msvcrt.dll!_setlocale_nolock
+# 5 msvcrt.dll!setlocale 
+# 6 main         
+
+Potential Error #53: POSSIBLE LEAK 384 direct bytes 0x00000255f66b09b0-0x00000255f66b0b30 + 0 indirect bytes
+# 0 replace_calloc                   [d:\a\drmemory\drmemory\common\alloc_replace.c:2620]
+# 1 msvcrt.dll!calloc_crt
+# 2 msvcrt.dll!_init_ctype
+# 3 msvcrt.dll!_setlocale_set_cat
+# 4 msvcrt.dll!_setlocale_nolock
+# 5 msvcrt.dll!setlocale 
+# 6 main         
+
+DUPLICATE POTENTIAL ERROR COUNTS:
+	Potential Error #   5:    699
+	Potential Error #   6:    699
+	Potential Error #   7:    483
+	Potential Error #   8:    483
+	Potential Error #   9:    441
+	Potential Error #  10:    441
+	Potential Error #  11:    441
+	Potential Error #  12:    441
+	Potential Error #  13:    231
+	Potential Error #  14:    231
+	Potential Error #  15:    189
+	Potential Error #  16:    189
+	Potential Error #  17:     80
+	Potential Error #  18:     80
+	Potential Error #  19:     95
+	Potential Error #  20:     95
+	Potential Error #  21:    105
+	Potential Error #  22:    105
+	Potential Error #  23:    264
+	Potential Error #  24:    264
+	Potential Error #  25:      6
+	Potential Error #  26:      6
+	Potential Error #  27:    115
+	Potential Error #  28:    115
+	Potential Error #  29:     48
+	Potential Error #  30:     48
+	Potential Error #  31:      3
+	Potential Error #  32:      3
+	Potential Error #  33:    120
+	Potential Error #  34:    120
+	Potential Error #  35:     41
+	Potential Error #  36:     41
+	Potential Error #  37:    215
+	Potential Error #  38:    215
+	Potential Error #  39:      5
+	Potential Error #  40:      5
+	Potential Error #  41:    103
+	Potential Error #  42:    103
+	Potential Error #  43:      3
+	Potential Error #  44:      3
+	Potential Error #  45:     40
+	Potential Error #  46:     40
+	Potential Error #  47:    190
+	Potential Error #  48:    190
+	Potential Error #  49:     47
+	Potential Error #  50:     47
+
+POTENTIAL ERRORS FOUND:
+      0 unique,     0 total potential unaddressable access(es)
+     50 unique,  7932 total potential uninitialized access(es)
+      0 unique,     0 total potential invalid heap argument(s)
+      0 unique,     0 total potential GDI usage error(s)
+      0 unique,     0 total potential handle leak(s)
+      0 unique,     0 total potential warning(s)
+      0 unique,     0 total,      0 byte(s) of potential leak(s)
+      3 unique,     3 total,   1536 byte(s) of potential possible leak(s)
+Details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\potential_errors.txt

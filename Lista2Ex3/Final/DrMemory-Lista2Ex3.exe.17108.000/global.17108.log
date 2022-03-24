@@ -1,0 +1,984 @@
+Dr. Memory version 2.5.0 build 0 built on Oct 18 2021 03:01:22
+start time: 3692375:34:08.175 == 23:34:08.175 03/23/2022
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+Recorded 1 suppression(s) from user C:\Users\arthu\OneDrive\ufpel\EAD\AED I\AED-I-M2\Lista2Ex3\cmake-build-debug\suppress.txt
+Using system call file C:\Users\arthu\AppData\Roaming\Dr. Memory\symcache\syscalls_x64.txt
+Syscall mismatch detected.  Running on unknown kernel version!
+new thread #0 id=10536
+
+module load event: "dynamorio.dll" 0x0000000071000000-0x00000000711bf000 modid: 1 C:\Program Files (x86)\Dr. Memory\dynamorio\lib64\release\dynamorio.dll
+
+module load event: "drmemorylib.dll" 0x00007ff758010000-0x00007ff7582bd000 modid: 2 C:\Program Files (x86)\Dr. Memory\bin64\release\drmemorylib.dll
+
+module load event: "Lista2Ex3.exe" 0x00007ff7c7fe0000-0x00007ff7c8005000 modid: 3 C:\Users\arthu\OneDrive\ufpel\EAD\AED I\AED-I-M2\Lista2Ex3\cmake-build-debug\Lista2Ex3.exe
+
+module load event: "KERNELBASE.dll" 0x00007ff9bfb30000-0x00007ff9bfea4000 modid: 4 C:\Windows\System32\KERNELBASE.dll
+
+module load event: "KERNEL32.dll" 0x00007ff9c13e0000-0x00007ff9c149d000 modid: 5 C:\Windows\System32\KERNEL32.DLL
+
+module load event: "msvcrt.dll" 0x00007ff9c1820000-0x00007ff9c18c3000 modid: 6 C:\Windows\System32\msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+WARNING: new == new[] => disabling mismatch detection for msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+
+module load event: "ntdll.dll" 0x00007ff9c22a0000-0x00007ff9c24a9000 modid: 7 C:\Windows\SYSTEM32\ntdll.dll
+WARNING: fail to find call to RtlFreeStringRoutine
+WARNING: fail to find call to RtlFreeStringRoutine
+WARNING: fail to find call to RtlFreeStringRoutine
+WARNING: unhandled system calls found
+WARNING: unable to load symbols for C:\Windows\System32\KERNELBASE.dll
+
+NEW THREAD: main thread 10536
+
+
+Potential Error #1: UNINITIALIZED READ: reading 0x000000a91abfee02-0x000000a91abfee04 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>) modid:4
+# 1 KERNELBASE.dll!GetLocaleInfoHelper (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>) modid:4
+# 2 KERNELBASE.dll!GetLocaleInfoW (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>) modid:4
+# 3 msvcrt.dll!__crtGetLocaleInfoA_stat (0x00007ff9c185731f <msvcrt.dll+0x3731f>) modid:6
+# 4 msvcrt.dll!expandlocale (0x00007ff9c184bf35 <msvcrt.dll+0x2bf35>) modid:6
+# 5 msvcrt.dll!_init_monetary (0x00007ff9c1854044 <msvcrt.dll+0x34044>) modid:6
+# 6 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 7 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 8 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+# 9 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+Note: @0:00:00.244 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+	error end
+
+Potential Error #2: UNINITIALIZED READ: reading 0x000000a91abfede2-0x000000a91abfede4 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>) modid:4
+# 1 KERNELBASE.dll!GetLocaleInfoHelper (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>) modid:4
+# 2 KERNELBASE.dll!GetLocaleInfoW (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>) modid:4
+# 3 msvcrt.dll!__crtGetLocaleInfoA_stat (0x00007ff9c18573bd <msvcrt.dll+0x373bd>) modid:6
+# 4 msvcrt.dll!_crtGetLocaleInfoA (0x00007ff9c1857488 <msvcrt.dll+0x37488>) modid:6
+# 5 msvcrt.dll!_getlocaleinfo (0x00007ff9c1853cc1 <msvcrt.dll+0x33cc1>) modid:6
+# 6 msvcrt.dll!_init_monetary (0x00007ff9c1854044 <msvcrt.dll+0x34044>) modid:6
+# 7 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 8 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 9 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+#10 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+Note: @0:00:00.245 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+	error end
+
+Potential Error #3: UNINITIALIZED READ: reading 0x000000a91abfeee2-0x000000a91abfeee4 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>) modid:4
+# 1 KERNELBASE.dll!GetLocaleInfoHelper (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>) modid:4
+# 2 KERNELBASE.dll!GetLocaleInfoW (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>) modid:4
+# 3 msvcrt.dll!_getlocaleinfo (0x00007ff9c1853ddc <msvcrt.dll+0x33ddc>) modid:6
+# 4 msvcrt.dll!_init_monetary (0x00007ff9c1854223 <msvcrt.dll+0x34223>) modid:6
+# 5 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 6 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 7 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+# 8 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+Note: @0:00:00.261 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+	error end
+
+Potential Error #4: UNINITIALIZED READ: reading 0x000000a91abfeee2-0x000000a91abfeee4 2 byte(s)
+# 0 KERNELBASE.dll!GetUserOverrideString (0x00007ff9bfb72ece <KERNELBASE.dll+0x42ece>) modid:4
+# 1 KERNELBASE.dll!GetLocaleInfoHelper (0x00007ff9bfb709eb <KERNELBASE.dll+0x409eb>) modid:4
+# 2 KERNELBASE.dll!GetLocaleInfoW (0x00007ff9bfb6fe8f <KERNELBASE.dll+0x3fe8f>) modid:4
+# 3 msvcrt.dll!_getlocaleinfo (0x00007ff9c1853e07 <msvcrt.dll+0x33e07>) modid:6
+# 4 msvcrt.dll!_init_monetary (0x00007ff9c1854223 <msvcrt.dll+0x34223>) modid:6
+# 5 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 6 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 7 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+# 8 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+Note: @0:00:00.262 in thread 10536
+Note: instruction: data16 cmp    0x02(%r14) %bx
+	error end
+
+Potential Error #5: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1859 <Lista2Ex3.exe+0x1859>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.345 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #6: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1859 <Lista2Ex3.exe+0x1859>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.345 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #7: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1868 <Lista2Ex3.exe+0x1868>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.389 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #8: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1868 <Lista2Ex3.exe+0x1868>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.390 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #9: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1877 <Lista2Ex3.exe+0x1877>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.418 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #10: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1877 <Lista2Ex3.exe+0x1877>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.418 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #11: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1886 <Lista2Ex3.exe+0x1886>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.444 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #12: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1886 <Lista2Ex3.exe+0x1886>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.445 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #13: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1895 <Lista2Ex3.exe+0x1895>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.469 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #14: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe1895 <Lista2Ex3.exe+0x1895>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.469 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #15: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe18a4 <Lista2Ex3.exe+0x18a4>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.482 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #16: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 menu          (0x00007ff7c7fe18a4 <Lista2Ex3.exe+0x18a4>) modid:3
+#10 main          (0x00007ff7c7fe172a <Lista2Ex3.exe+0x172a>) modid:3
+Note: @0:00:00.482 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #17: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 AdicionarRegistro (0x00007ff7c7fe1940 <Lista2Ex3.exe+0x1940>) modid:3
+#10 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+Note: @0:00:13.475 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #18: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 AdicionarRegistro (0x00007ff7c7fe1940 <Lista2Ex3.exe+0x1940>) modid:3
+#10 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+Note: @0:00:13.475 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #19: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 AdicionarRegistro (0x00007ff7c7fe1980 <Lista2Ex3.exe+0x1980>) modid:3
+#10 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+Note: @0:00:16.867 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #20: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 AdicionarRegistro (0x00007ff7c7fe1980 <Lista2Ex3.exe+0x1980>) modid:3
+#10 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+Note: @0:00:16.867 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #21: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 AdicionarRegistro (0x00007ff7c7fe19c0 <Lista2Ex3.exe+0x19c0>) modid:3
+#10 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+Note: @0:00:18.524 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #22: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 AdicionarRegistro (0x00007ff7c7fe19c0 <Lista2Ex3.exe+0x19c0>) modid:3
+#10 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+Note: @0:00:18.524 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #23: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1edb <Lista2Ex3.exe+0x1edb>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.193 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #24: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1edb <Lista2Ex3.exe+0x1edb>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.194 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #25: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1ef6 <Lista2Ex3.exe+0x1ef6>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.253 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #26: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1ef6 <Lista2Ex3.exe+0x1ef6>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.253 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #27: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __pformat_putchars (0x00007ff7c7fe8977 <Lista2Ex3.exe+0x8977>) modid:3
+# 7 __mingw_pformat (0x00007ff7c7fea789 <Lista2Ex3.exe+0xa789>) modid:3
+# 8 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 9 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+#10 Listar        (0x00007ff7c7fe1fb5 <Lista2Ex3.exe+0x1fb5>) modid:3
+#11 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.261 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #28: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __pformat_putchars (0x00007ff7c7fe8977 <Lista2Ex3.exe+0x8977>) modid:3
+# 7 __mingw_pformat (0x00007ff7c7fea789 <Lista2Ex3.exe+0xa789>) modid:3
+# 8 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 9 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+#10 Listar        (0x00007ff7c7fe1fb5 <Lista2Ex3.exe+0x1fb5>) modid:3
+#11 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.261 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #29: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1fe0 <Lista2Ex3.exe+0x1fe0>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.284 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #30: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1fe0 <Lista2Ex3.exe+0x1fe0>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:21.284 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #31: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1f56 <Lista2Ex3.exe+0x1f56>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:47.942 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #32: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1f56 <Lista2Ex3.exe+0x1f56>) modid:3
+#10 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:00:47.942 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #33: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Buscar        (0x00007ff7c7fe1d2d <Lista2Ex3.exe+0x1d2d>) modid:3
+#10 main          (0x00007ff7c7fe1781 <Lista2Ex3.exe+0x1781>) modid:3
+Note: @0:00:53.568 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #34: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Buscar        (0x00007ff7c7fe1d2d <Lista2Ex3.exe+0x1d2d>) modid:3
+#10 main          (0x00007ff7c7fe1781 <Lista2Ex3.exe+0x1781>) modid:3
+Note: @0:00:53.568 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #35: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __pformat_putchars (0x00007ff7c7fe8977 <Lista2Ex3.exe+0x8977>) modid:3
+# 7 __mingw_pformat (0x00007ff7c7fea789 <Lista2Ex3.exe+0xa789>) modid:3
+# 8 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 9 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+#10 Buscar        (0x00007ff7c7fe1e71 <Lista2Ex3.exe+0x1e71>) modid:3
+#11 main          (0x00007ff7c7fe1781 <Lista2Ex3.exe+0x1781>) modid:3
+Note: @0:00:58.540 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #36: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __pformat_putchars (0x00007ff7c7fe8977 <Lista2Ex3.exe+0x8977>) modid:3
+# 7 __mingw_pformat (0x00007ff7c7fea789 <Lista2Ex3.exe+0xa789>) modid:3
+# 8 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 9 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+#10 Buscar        (0x00007ff7c7fe1e71 <Lista2Ex3.exe+0x1e71>) modid:3
+#11 main          (0x00007ff7c7fe1781 <Lista2Ex3.exe+0x1781>) modid:3
+Note: @0:00:58.540 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+new thread #1 id=20868
+
+Potential Error #37: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1edb <Lista2Ex3.exe+0x1edb>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.864 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #38: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1edb <Lista2Ex3.exe+0x1edb>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.864 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #39: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1ef6 <Lista2Ex3.exe+0x1ef6>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.922 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #40: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1ef6 <Lista2Ex3.exe+0x1ef6>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.922 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #41: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __pformat_putchars (0x00007ff7c7fe8977 <Lista2Ex3.exe+0x8977>) modid:3
+# 7 __mingw_pformat (0x00007ff7c7fea789 <Lista2Ex3.exe+0xa789>) modid:3
+# 8 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 9 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+#10 Listar        (0x00007ff7c7fe1fb5 <Lista2Ex3.exe+0x1fb5>) modid:3
+#11 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#12 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.928 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #42: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __pformat_putchars (0x00007ff7c7fe8977 <Lista2Ex3.exe+0x8977>) modid:3
+# 7 __mingw_pformat (0x00007ff7c7fea789 <Lista2Ex3.exe+0xa789>) modid:3
+# 8 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 9 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+#10 Listar        (0x00007ff7c7fe1fb5 <Lista2Ex3.exe+0x1fb5>) modid:3
+#11 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#12 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.928 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #43: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1f56 <Lista2Ex3.exe+0x1f56>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.952 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #44: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1f56 <Lista2Ex3.exe+0x1f56>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:23.952 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #45: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1fe0 <Lista2Ex3.exe+0x1fe0>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:24.016 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #46: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 Listar        (0x00007ff7c7fe1fe0 <Lista2Ex3.exe+0x1fe0>) modid:3
+#10 RemoverRegistro (0x00007ff7c7fe1b2f <Lista2Ex3.exe+0x1b2f>) modid:3
+#11 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:24.017 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #47: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 RemoverRegistro (0x00007ff7c7fe1b3e <Lista2Ex3.exe+0x1b3e>) modid:3
+#10 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:24.028 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #48: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 RemoverRegistro (0x00007ff7c7fe1b3e <Lista2Ex3.exe+0x1b3e>) modid:3
+#10 main          (0x00007ff7c7fe176f <Lista2Ex3.exe+0x176f>) modid:3
+Note: @0:01:24.028 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Potential Error #49: UNINITIALIZED READ: reading register ecx
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b5c4 <KERNELBASE.dll+0x4b5c4>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 ChecaPopulacao (0x00007ff7c7fe208b <Lista2Ex3.exe+0x208b>) modid:3
+#10 Listar        (0x00007ff7c7fe1eae <Lista2Ex3.exe+0x1eae>) modid:3
+#11 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:01:42.742 in thread 10536
+Note: instruction: cmp    %ecx $0x0000ea60
+	error end
+
+Potential Error #50: UNINITIALIZED READ: reading register edi
+# 0 KERNELBASE.dll!WideCharToMultiByte (0x00007ff9bfb7b7e6 <KERNELBASE.dll+0x4b7e6>) modid:4
+# 1 msvcrt.dll!write_nolock (0x00007ff9c1842835 <msvcrt.dll+0x22835>) modid:6
+# 2 msvcrt.dll!write      (0x00007ff9c18425a7 <msvcrt.dll+0x225a7>) modid:6
+# 3 msvcrt.dll!flsbuf     (0x00007ff9c186a39e <msvcrt.dll+0x4a39e>) modid:6
+# 4 msvcrt.dll!fputc      (0x00007ff9c18708f5 <msvcrt.dll+0x508f5>) modid:6
+# 5 __pformat_putc (0x00007ff7c7fe8883 <Lista2Ex3.exe+0x8883>) modid:3
+# 6 __mingw_pformat (0x00007ff7c7feafc4 <Lista2Ex3.exe+0xafc4>) modid:3
+# 7 __mingw_vfprintf (0x00007ff7c7fe3884 <Lista2Ex3.exe+0x3884>) modid:3
+# 8 printf        (0x00007ff7c7fe1835 <Lista2Ex3.exe+0x1835>) modid:3
+# 9 ChecaPopulacao (0x00007ff7c7fe208b <Lista2Ex3.exe+0x208b>) modid:3
+#10 Listar        (0x00007ff7c7fe1eae <Lista2Ex3.exe+0x1eae>) modid:3
+#11 main          (0x00007ff7c7fe178f <Lista2Ex3.exe+0x178f>) modid:3
+Note: @0:01:42.743 in thread 10536
+Note: instruction: test   %edi %edi
+	error end
+
+Error #1: POSSIBLE LEAK 31 direct bytes 0x00000255f66b01c0-0x00000255f66b01df + 0 indirect bytes
+# 0 replace_malloc  [d:\a\drmemory\drmemory\common\alloc_replace.c:2580] (0x00007ff758038060 <drmemorylib.dll+0x28060>) modid:2
+# 1 msvcrt.dll!malloc_crt (0x00007ff9c183c93b <msvcrt.dll+0x1c93b>) modid:6
+# 2 msvcrt.dll!_setargv   (0x00007ff9c185e6ed <msvcrt.dll+0x3e6ed>) modid:6
+# 3 msvcrt.dll!_getmainargs (0x00007ff9c1827ca1 <msvcrt.dll+0x7ca1>) modid:6
+# 4 pre_cpp_init  (0x00007ff7c7fe10e9 <Lista2Ex3.exe+0x10e9>) modid:3
+# 5 msvcrt.dll!initterm   (0x00007ff9c185d54d <msvcrt.dll+0x3d54d>) modid:6
+# 6 __tmainCRTStartup (0x00007ff7c7fe12af <Lista2Ex3.exe+0x12af>) modid:3
+# 7 .l_start      (0x00007ff7c7fe1146 <Lista2Ex3.exe+0x1146>) modid:3
+# 8 ntdll.dll!RtlUserThreadStart (0x00007ff9c22a485b <ntdll.dll+0x485b>) modid:7
+	error end
+
+Potential Error #51: POSSIBLE LEAK 768 direct bytes 0x00000255f66b04f0-0x00000255f66b07f0 + 0 indirect bytes
+# 0 replace_calloc  [d:\a\drmemory\drmemory\common\alloc_replace.c:2620] (0x00007ff758037620 <drmemorylib.dll+0x27620>) modid:2
+# 1 msvcrt.dll!calloc_crt (0x00007ff9c183c8c6 <msvcrt.dll+0x1c8c6>) modid:6
+# 2 msvcrt.dll!_init_ctype (0x00007ff9c184b097 <msvcrt.dll+0x2b097>) modid:6
+# 3 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 4 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 5 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+# 6 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+	error end
+
+Potential Error #52: POSSIBLE LEAK 384 direct bytes 0x00000255f66b0810-0x00000255f66b0990 + 0 indirect bytes
+# 0 replace_calloc  [d:\a\drmemory\drmemory\common\alloc_replace.c:2620] (0x00007ff758037620 <drmemorylib.dll+0x27620>) modid:2
+# 1 msvcrt.dll!calloc_crt (0x00007ff9c183c8c6 <msvcrt.dll+0x1c8c6>) modid:6
+# 2 msvcrt.dll!_init_ctype (0x00007ff9c184b0a4 <msvcrt.dll+0x2b0a4>) modid:6
+# 3 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 4 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 5 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+# 6 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+	error end
+
+Potential Error #53: POSSIBLE LEAK 384 direct bytes 0x00000255f66b09b0-0x00000255f66b0b30 + 0 indirect bytes
+# 0 replace_calloc  [d:\a\drmemory\drmemory\common\alloc_replace.c:2620] (0x00007ff758037620 <drmemorylib.dll+0x27620>) modid:2
+# 1 msvcrt.dll!calloc_crt (0x00007ff9c183c8c6 <msvcrt.dll+0x1c8c6>) modid:6
+# 2 msvcrt.dll!_init_ctype (0x00007ff9c184b0b1 <msvcrt.dll+0x2b0b1>) modid:6
+# 3 msvcrt.dll!_setlocale_set_cat (0x00007ff9c184c77d <msvcrt.dll+0x2c77d>) modid:6
+# 4 msvcrt.dll!_setlocale_nolock (0x00007ff9c184c4cb <msvcrt.dll+0x2c4cb>) modid:6
+# 5 msvcrt.dll!setlocale  (0x00007ff9c184c9cd <msvcrt.dll+0x2c9cd>) modid:6
+# 6 main          (0x00007ff7c7fe1701 <Lista2Ex3.exe+0x1701>) modid:3
+	error end
+
+Error #2: LEAK 5 direct bytes 0x00000255f66b2f90-0x00000255f66b2f95 + 0 indirect bytes
+# 0 replace_realloc [d:\a\drmemory\drmemory\common\alloc_replace.c:2672] (0x00007ff758038fe0 <drmemorylib.dll+0x28fe0>) modid:2
+# 1 AdicionarRegistro (0x00007ff7c7fe1a84 <Lista2Ex3.exe+0x1a84>) modid:3
+# 2 main          (0x00007ff7c7fe175d <Lista2Ex3.exe+0x175d>) modid:3
+	error end
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+	   275x: Error #2:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      1 unique,     1 total,      5 byte(s) of leak(s)
+      1 unique,     1 total,     31 byte(s) of possible leak(s)
+ERRORS IGNORED:
+     50 potential error(s) (suspected false positives)
+         (details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\potential_errors.txt)
+      3 potential leak(s) (suspected false positives)
+         (details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\potential_errors.txt)
+    275 user-suppressed,     0 default-suppressed error(s)
+      0 user-suppressed,     0 default-suppressed leak(s)
+    122 ignored assumed-innocuous system leak(s)
+    116 unique,   120 total,   2461 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\results.txt
+
+DUPLICATE POTENTIAL ERROR COUNTS:
+	Potential Error #   5:    699
+	Potential Error #   6:    699
+	Potential Error #   7:    483
+	Potential Error #   8:    483
+	Potential Error #   9:    441
+	Potential Error #  10:    441
+	Potential Error #  11:    441
+	Potential Error #  12:    441
+	Potential Error #  13:    231
+	Potential Error #  14:    231
+	Potential Error #  15:    189
+	Potential Error #  16:    189
+	Potential Error #  17:     80
+	Potential Error #  18:     80
+	Potential Error #  19:     95
+	Potential Error #  20:     95
+	Potential Error #  21:    105
+	Potential Error #  22:    105
+	Potential Error #  23:    264
+	Potential Error #  24:    264
+	Potential Error #  25:      6
+	Potential Error #  26:      6
+	Potential Error #  27:    115
+	Potential Error #  28:    115
+	Potential Error #  29:     48
+	Potential Error #  30:     48
+	Potential Error #  31:      3
+	Potential Error #  32:      3
+	Potential Error #  33:    120
+	Potential Error #  34:    120
+	Potential Error #  35:     41
+	Potential Error #  36:     41
+	Potential Error #  37:    215
+	Potential Error #  38:    215
+	Potential Error #  39:      5
+	Potential Error #  40:      5
+	Potential Error #  41:    103
+	Potential Error #  42:    103
+	Potential Error #  43:      3
+	Potential Error #  44:      3
+	Potential Error #  45:     40
+	Potential Error #  46:     40
+	Potential Error #  47:    190
+	Potential Error #  48:    190
+	Potential Error #  49:     47
+	Potential Error #  50:     47
+
+POTENTIAL ERRORS FOUND:
+      0 unique,     0 total potential unaddressable access(es)
+     50 unique,  7932 total potential uninitialized access(es)
+      0 unique,     0 total potential invalid heap argument(s)
+      0 unique,     0 total potential GDI usage error(s)
+      0 unique,     0 total potential handle leak(s)
+      0 unique,     0 total potential warning(s)
+      0 unique,     0 total,      0 byte(s) of potential leak(s)
+      3 unique,     3 total,   1536 byte(s) of potential possible leak(s)
+Details: C:\Users\arthu\AppData\Roaming\Dr. Memory\DrMemory-Lista2Ex3.exe.17108.000\potential_errors.txt
+Exiting @0:02:28.274 in thread 10536
+LOG END

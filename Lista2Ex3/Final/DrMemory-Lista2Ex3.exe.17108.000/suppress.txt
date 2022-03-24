@@ -1,0 +1,42 @@
+# File for suppressing errors found in pid 17108: "Lista2Ex3.exe"
+
+# Suppression for Error #1
+POSSIBLE LEAK
+name=Error #1 (update to meaningful name)
+drmemorylib.dll!replace_malloc
+msvcrt.dll!malloc_crt
+msvcrt.dll!_setargv
+msvcrt.dll!_getmainargs
+Lista2Ex3.exe!pre_cpp_init
+msvcrt.dll!initterm
+Lista2Ex3.exe!__tmainCRTStartup
+Lista2Ex3.exe!.l_start
+ntdll.dll!RtlUserThreadStart
+
+## Mod+offs-style suppression for Error #1:
+POSSIBLE LEAK
+name=Error #1 (update to meaningful name)
+<drmemorylib.dll+0x28060>
+<msvcrt.dll+0x1c93b>
+<msvcrt.dll+0x3e6ed>
+<msvcrt.dll+0x7ca1>
+<Lista2Ex3.exe+0x10e9>
+<msvcrt.dll+0x3d54d>
+<Lista2Ex3.exe+0x12af>
+<Lista2Ex3.exe+0x1146>
+<ntdll.dll+0x485b>
+
+# Suppression for Error #2
+LEAK
+name=Error #2 (update to meaningful name)
+drmemorylib.dll!replace_realloc
+Lista2Ex3.exe!AdicionarRegistro
+Lista2Ex3.exe!main
+
+## Mod+offs-style suppression for Error #2:
+LEAK
+name=Error #2 (update to meaningful name)
+<drmemorylib.dll+0x28fe0>
+<Lista2Ex3.exe+0x1a84>
+<Lista2Ex3.exe+0x175d>
+

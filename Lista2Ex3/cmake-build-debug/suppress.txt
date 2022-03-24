@@ -1,0 +1,3 @@
+UNADDRESSABLE ACCESS
+name=Error #2:
+Lista2Ex3.exe!*
