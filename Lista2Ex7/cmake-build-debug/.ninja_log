@@ -1,0 +1,16 @@
+# ninja log v5
+1	110	6702125797534942	CMakeFiles/Lista2Ex7.dir/main.c.obj	abcba1a978e1c4bd
+10	113	6702125797539987	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+2	117	6702143719541476	CMakeFiles/Lista2Ex7.dir/main.c.obj	abcba1a978e1c4bd
+10	123	6702143719607203	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+2	114	6702144094776199	CMakeFiles/Lista2Ex7.dir/main.c.obj	abcba1a978e1c4bd
+9	121	6702144094836818	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+121	259	6702144096167287	Lista2Ex7.exe	6928b9f37314da0c
+2	104	6702146210105908	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+105	267	6702146211647296	Lista2Ex7.exe	6928b9f37314da0c
+2	111	6702149352542941	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+111	277	6702149354140348	Lista2Ex7.exe	6928b9f37314da0c
+2	105	6702150083754854	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+106	245	6702150085078139	Lista2Ex7.exe	6928b9f37314da0c
+2	113	6702151826980555	CMakeFiles/Lista2Ex7.dir/artlib.c.obj	1e205338c15df6da
+114	255	6702151828339507	Lista2Ex7.exe	6928b9f37314da0c
