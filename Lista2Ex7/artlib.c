@@ -91,6 +91,38 @@ void Listar(void *buffer){
     }
 }
 
-void Buscar(void *buffer){
-    printf("Buscar\n");
+void* Buscar(void *buffer){
+    int *num=buffer;
+
+    if(num[0]==0){
+        printf("Não foi encontrado nenhuma registro na agenda!\n");
+        return buffer;
+    }
+    Pessoa *p=NULL;
+    buffer= realloc(buffer,2*sizeof(int)+sizeof(char)*30);
+    if(buffer==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
+
+    char *nome=buffer+sizeof(int)*2;
+    fflush(stdin);
+    printf("Qual nome voce esta buscando? ");
+    scanf("%s",nome);
+
+    for(num[1]=0;num[1]<num[0];num[1]++){
+        p = pessoas + sizeof(Pessoa) * num[1];
+        if(!strcmp(nome,p->nome)) {
+            printf("%d\t%s\t%d\t%d\n", num[1] + 1, p->nome, p->idade, p->altura);
+            num[1]=num[0];
+        }
+    }
+
+    buffer= realloc(buffer,2*sizeof(int));
+    if(buffer==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
+
+    return buffer;
 }

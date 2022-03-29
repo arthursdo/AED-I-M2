@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "artlib.h"
 
 int main() {
@@ -23,7 +22,7 @@ int main() {
                 RemoverRegistro(pBuffer);
                 break;
             case 3:
-                Buscar(pBuffer);
+                pBuffer=Buscar(pBuffer);
                 break;
             case 4:
                 Listar(pBuffer);

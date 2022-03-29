@@ -12,5 +12,5 @@ typedef struct {
 int menu(void *buffer);
 void AdicionarRegistro(void *buffer);
 void RemoverRegistro(void *buffer);
-void Buscar(void *buffer);
+void* Buscar(void *buffer);
 void Listar(void *buffer);
