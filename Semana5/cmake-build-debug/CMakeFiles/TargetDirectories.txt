@@ -1,0 +1,3 @@
+C:/Users/arthu/OneDrive/ufpel/EAD/AED I/AED-I-M2/Semana5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/arthu/OneDrive/ufpel/EAD/AED I/AED-I-M2/Semana5/cmake-build-debug/CMakeFiles/Semana5.dir
+C:/Users/arthu/OneDrive/ufpel/EAD/AED I/AED-I-M2/Semana5/cmake-build-debug/CMakeFiles/edit_cache.dir

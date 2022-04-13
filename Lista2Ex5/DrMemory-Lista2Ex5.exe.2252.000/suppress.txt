@@ -1,0 +1,40 @@
+# File for suppressing errors found in pid 2252: "Lista2Ex5.exe"
+
+# Suppression for Error #1
+POSSIBLE LEAK
+name=Error #1 (update to meaningful name)
+drmemorylib.dll!replace_malloc
+msvcrt.dll!malloc_crt
+msvcrt.dll!_setargv
+msvcrt.dll!_getmainargs
+Lista2Ex5.exe!pre_cpp_init
+msvcrt.dll!initterm
+Lista2Ex5.exe!__tmainCRTStartup
+Lista2Ex5.exe!.l_start
+ntdll.dll!RtlUserThreadStart
+
+## Mod+offs-style suppression for Error #1:
+POSSIBLE LEAK
+name=Error #1 (update to meaningful name)
+<drmemorylib.dll+0x28060>
+<msvcrt.dll+0x1cd6b>
+<msvcrt.dll+0x3ed89>
+<msvcrt.dll+0x7d41>
+<Lista2Ex5.exe+0x10e9>
+<msvcrt.dll+0x3dbbd>
+<Lista2Ex5.exe+0x12af>
+<Lista2Ex5.exe+0x1146>
+<ntdll.dll+0x4a958>
+
+# Suppression for Error #2
+LEAK
+name=Error #2 (update to meaningful name)
+drmemorylib.dll!replace_realloc
+Lista2Ex5.exe!main
+
+## Mod+offs-style suppression for Error #2:
+LEAK
+name=Error #2 (update to meaningful name)
+<drmemorylib.dll+0x28fe0>
+<Lista2Ex5.exe+0x1939>
+

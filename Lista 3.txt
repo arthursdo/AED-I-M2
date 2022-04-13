@@ -1,0 +1,11 @@
+Encontre na web páginas ou vídeos que falam sobre complexidade de algoritmos. Veja o que vimos na aula dessa semana para procurar por palavras chaves.
+Faça um resumo bem direto, não precisa fazer um texto basta copiar e colar coisas que achou interessante, talvez só com imagens e formulas com base nas 
+páginas e vídeos que encontrou (faça citação de onde cada coisa veio). Pode copiar e colar num documento, máximo 2 páginas. Depois faça um vídeo explicando esse documento.
+O objetivo é:
+o que é complexidade de algoritmos
+para que server
+como é usado na prática no mercado
+Feito isso, procure no youtube algum vídeo que explica como é o processo de contratação de programadores. Em particular, procure um vídeo que mostra algum problema que 
+envolve complexidade de algoritmos. Basta dizer o link e dizer qual o problema ou como eles usam complexidade de algoritmos nas entrevistas.
+
+Entregar o resumo e o vídeo. Pode colocar um link para um zip.

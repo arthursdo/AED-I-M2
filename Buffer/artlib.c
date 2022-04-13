@@ -1,7 +1,5 @@
 #include "artlib.h"
 
-Pessoa pessoas[10];
-
 int menu(void *buffer) {
     printf("Agenda massa, escolha uma opção\n");
     printf("\t 1-Adicionar registro\n");
@@ -24,20 +22,29 @@ int menu(void *buffer) {
     return p[1];
 }
 
-void AdicionarRegistro(void *buffer){
+void *AdicionarRegistro(void *buffer){
     int *num=buffer;
-
-    if(num[0]>9){
-        printf("Maximo de entradas atingido!!\n");
-        return;
+    buffer=realloc(buffer,gbh()+sizeof(Pessoa)*(num[0]+1));
+    if(buffer==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
     }
 
-    Pessoa *p=pessoas+(sizeof(Pessoa)*num[0]);
+    Pessoa *p=buffer+gbh()+(sizeof(Pessoa)*num[0]);
+    char *leitura=buffer+2*sizeof(int);
 
     //leitura do nome
     fflush(stdin);
     printf("\nInsira um nome: ");
-    scanf("%s",p->nome );
+    scanf("%s",leitura );
+
+    p->nome=NULL;
+    p->nome=(char *)malloc((strlen(leitura)+1)*sizeof(char));
+    if(p->nome==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
+    strcpy(p->nome,leitura);
 
     //leitura da idade
     fflush(stdin);
@@ -50,10 +57,13 @@ void AdicionarRegistro(void *buffer){
     scanf("%d", &p->altura);
 
     num[0]++;
+
+    return buffer;
 }
 
-void RemoverRegistro(void *buffer){
+void* RemoverRegistro(void *buffer){
     int *num=buffer;
+    Pessoa *p=NULL;
 
     Listar(buffer);
     //Solicita e trata a entrada do usuario
@@ -68,12 +78,20 @@ void RemoverRegistro(void *buffer){
         }
     } while (num[1] < 1 || num[1] > num[0]);
 
-    Pessoa *p1=pessoas+sizeof(Pessoa)*(num[1]-1);
-    Pessoa *p2=pessoas+sizeof(Pessoa)*(num[1]);
+    Pessoa *p1=buffer+gbh()+sizeof(Pessoa)*(num[1]-1);
+    Pessoa *p2=buffer+gbh()+sizeof(Pessoa)*(1+num[1]);
 
     memcpy(p1,p2,sizeof(Pessoa)*(num[0]-num[1]));
 
     num[0]--;
+
+    buffer= realloc(buffer,gbh()+sizeof(Pessoa)*num[0]);
+    if(buffer==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
+
+    return buffer;
 }
 
 void Listar(void *buffer){
@@ -85,7 +103,7 @@ void Listar(void *buffer){
     }
     Pessoa *p=NULL;
     for(num[1]=0;num[1]<num[0];num[1]++){
-        p=pessoas+sizeof(Pessoa)*num[1];
+        p=buffer+gbh()+sizeof(Pessoa)*num[1];
         printf("%d\t%s\t%d\t%d\n",num[1]+1,p->nome,p->idade,p->altura);
     }
 }
@@ -98,19 +116,13 @@ void* Buscar(void *buffer){
         return buffer;
     }
     Pessoa *p=NULL;
-    buffer= realloc(buffer,2*sizeof(int)+sizeof(char)*30);
-    if(buffer==NULL){
-        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
-        exit(1);
-    }
-
-    char *nome=buffer+sizeof(int)*2;
+    char *nome=buffer+2*sizeof(int);
     fflush(stdin);
     printf("Qual nome voce esta buscando? ");
     scanf("%s",nome);
 
     for(num[1]=0;num[1]<num[0];num[1]++){
-        p = pessoas + sizeof(Pessoa) * num[1];
+        p = buffer+gbh() + sizeof(Pessoa) * num[1];
         if(!strcmp(nome,p->nome)) {
             printf("%d\t%s\t%d\t%d\n", num[1] + 1, p->nome, p->idade, p->altura);
             num[1]=num[0];
@@ -124,4 +136,8 @@ void* Buscar(void *buffer){
     }
 
     return buffer;
+}
+
+int gbh(){
+    return 2*sizeof(int)+30*sizeof(char);
 }
