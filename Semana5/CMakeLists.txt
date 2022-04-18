@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.21)
+project(Semana5 C)
+
+set(CMAKE_C_STANDARD 99)
+
+set (CMAKE_C_FLAGS "-m64 -static-libgcc -ggdb -g")
+
+add_executable(Semana5 main.c artlib.c artlib.h)
