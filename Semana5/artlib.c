@@ -26,7 +26,7 @@ int menu(void *buffer) {
     return p[1];
 }
 
-void AdicionarRegistro(void *buffer, void *agenda){
+void *AdicionarRegistro(void *buffer, void *agenda){
 
     //anterior,proximo,char,idade,telefone
     void *aux=malloc(cellsize());
@@ -36,16 +36,24 @@ void AdicionarRegistro(void *buffer, void *agenda){
     }
 
     int *num=buffer;
-    char *leituraNome=buffer+(sizeof(int)*2);
-    char *nome=aux+(sizeof(void*)*2);
-    char *nometemp=NULL;
-    int *leituraIdade=nome+sizeof(char**);
+    char *pnome=aux+(sizeof(void*)*2);
+    char **nome=malloc(sizeof(char)*30);
+    int *leituraIdade=aux+(sizeof(void*)*2)+sizeof(char**);
     int *leituraTelefone=leituraIdade+sizeof(int);
+    void *prox=aux+sizeof(void*);
+    prox=NULL;
+    pnome=nome;
+
+    if(nome==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
 
     //leitura do nome
     fflush(stdin);
     printf("\nInsira um nome: ");
-    scanf("%s",leituraNome );
+    scanf("%s",&(*nome));
+    *pnome=realloc(&(*nome), strlen(&(*nome))+1);
 
     //leitura da idade
     fflush(stdin);
@@ -57,16 +65,37 @@ void AdicionarRegistro(void *buffer, void *agenda){
     printf("\nInsira o Telefone: ");
     scanf("%d", leituraTelefone);
 
-    nometemp=(char)malloc(sizeof(char)*(strlen(leituraNome)+1));
-    //*nome=(char) calloc(strlen(leituraNome)+1,sizeof(char));
-    printf("\nOK\n");
-    if(nome==nometemp){
-        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
-        exit(1);
+    if(num[0]==0){
+        agenda=aux;
+    } else{
+        agenda= realloc(agenda,cellsize()*(num[0]+1));
+        void **pt=agenda+(cellsize()*num[0])+sizeof(void*);
+        pt=&aux;
     }
-    *nome=&nometemp;
-    strcpy(nome,leituraNome);
-
-
     num[0]++;
+    return agenda;
+}
+void Listar(void *buffer,const void *agenda){
+    int *num=buffer;
+    if(num[0]==0){
+        printf("\nAgenda vazia\n");
+        return;
+    }
+
+    void *aux=agenda;
+    void *prox;
+    char *nome;
+    int *idade;
+    int *telefone;
+    num[1]=1;
+
+    do {
+        prox=aux+sizeof(void*);
+        nome=aux+(sizeof(void*)*2);
+        idade=nome+sizeof(char**);
+        telefone=idade+sizeof(int);
+        aux=prox;
+
+        printf("%d\t%s\t%d\t%d\n",num[1]++,&(*nome),idade,telefone);
+    } while (prox!=NULL);
 }

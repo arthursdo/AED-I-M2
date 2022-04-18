@@ -21,7 +21,7 @@ int main() {
         switch (menu(pBuffer))
         {
             case 1:
-                AdicionarRegistro(pBuffer,agenda);
+                agenda=AdicionarRegistro(pBuffer,agenda);
                 break;
             case 2:
                 //RemoverRegistro(pBuffer);
@@ -30,7 +30,7 @@ int main() {
                 //pBuffer=Buscar(pBuffer);
                 break;
             case 4:
-                //Listar(pBuffer);
+                Listar(pBuffer,agenda);
                 break;
             case 5:
                 exit(0);
