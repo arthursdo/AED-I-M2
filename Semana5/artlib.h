@@ -8,7 +8,9 @@
 
 inline int cellsize();
 int menu(void *buffer);
-void *AdicionarRegistro(void *buffer, void *agenda);
+void AdicionarRegistro(void *agenda);
 void Listar(void *buffer,const void *agenda);
+void Buscar(const void *agenda);
+int Precedencia(const char *pala,const char *palb);
 
 #endif //SEMANA5_ARTLIB_H

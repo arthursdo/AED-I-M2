@@ -7,7 +7,7 @@
 
 int main() {
     setbuf(stdout, 0);
-    void *agenda=NULL;
+    void *agenda= malloc(2*sizeof(void*));
     void *pBuffer=NULL;
     pBuffer= malloc((2*sizeof(int))+(sizeof(char)*30));
     if(pBuffer==NULL){
@@ -21,13 +21,13 @@ int main() {
         switch (menu(pBuffer))
         {
             case 1:
-                agenda=AdicionarRegistro(pBuffer,agenda);
+                AdicionarRegistro(agenda);
                 break;
             case 2:
                 //RemoverRegistro(pBuffer);
                 break;
             case 3:
-                //pBuffer=Buscar(pBuffer);
+                Buscar(agenda);
                 break;
             case 4:
                 Listar(pBuffer,agenda);
