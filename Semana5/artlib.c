@@ -1,5 +1,7 @@
 #include "artlib.h"
 
+int debug=0;
+
 int cellsize(){
     return (sizeof(int)*2)+(sizeof(char*))+(sizeof(void*)*2);
 }
@@ -85,18 +87,22 @@ void AdicionarRegistro(void *agenda){
     }
     *agendaProximo=aux;*/
 
-    void **agendaProximo,*temp,*ant;
+    void **agendaProximo,**temp,**ant=aux,*temp2;
     agendaProximo=agenda+sizeof(void*);
-
+    debug++;
     while (*agendaProximo!=NULL){
-        ant=agendaProximo;
-        agendaProximo=*agendaProximo+sizeof(void*);
-        temp=agendaProximo;
-        if(Precedencia(pnome,temp+sizeof(void*))){
-         *prox=*agendaProximo;
-         void **pant=ant;
-         void **pat=ant+sizeof(void*);
-
+        *ant=*agendaProximo;//Componente atual
+        agendaProximo=*agendaProximo+sizeof(void*);//proximo componente
+        temp2=agendaProximo;
+        temp=temp2+sizeof(void*);//+sizeof(void*);
+        if(Precedencia(*pnome,*temp)){
+            *prox=*agendaProximo;
+            ant=*ant;
+            ant+=sizeof(void*);
+            *ant=aux;
+            //agendaProximo=*agendaProximo;
+            *agendaProximo=aux;
+            return;
         }
     }
     *agendaProximo=aux;
@@ -181,6 +187,6 @@ int Precedencia(const char *pala,const char *palb){
         return 1;
     }
     if((int)pala[0]==(int)palb[0]){
-        return Precedencia(pala[1],palb[1]);
+        return Precedencia(pala+sizeof(char),palb+sizeof(char));
     }
 }
