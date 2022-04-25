@@ -49,5 +49,6 @@ int main() {
         p=buffer+sizeof(Pessoa)*i;
         printf("%d\t%s\t%d\t%d\n",i+1,p->nome,p->idade,p->altura);
     }
+    system("PAUSE");
 
 }

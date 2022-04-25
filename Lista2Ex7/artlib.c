@@ -54,7 +54,6 @@ void AdicionarRegistro(void *buffer){
 
 void RemoverRegistro(void *buffer){
     int *num=buffer;
-    Pessoa *p=NULL;
 
     Listar(buffer);
     //Solicita e trata a entrada do usuario
@@ -70,7 +69,7 @@ void RemoverRegistro(void *buffer){
     } while (num[1] < 1 || num[1] > num[0]);
 
     Pessoa *p1=pessoas+sizeof(Pessoa)*(num[1]-1);
-    Pessoa *p2=pessoas+sizeof(Pessoa)*(1+num[1]);
+    Pessoa *p2=pessoas+sizeof(Pessoa)*(num[1]);
 
     memcpy(p1,p2,sizeof(Pessoa)*(num[0]-num[1]));
 

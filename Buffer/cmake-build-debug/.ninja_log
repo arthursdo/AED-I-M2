@@ -1,0 +1,12 @@
+# ninja log v5
+0	105	6702294746850839	CMakeFiles/Buffer.dir/main.c.obj	bf5d6645bf3bc439
+8	121	6702294747007836	CMakeFiles/Buffer.dir/artlib.c.obj	5c3fce31a180282
+121	259	6702294748366025	Buffer.exe	a5cf59f8b3e5485a
+2	115	6702299440505576	CMakeFiles/Buffer.dir/main.c.obj	bf5d6645bf3bc439
+12	133	6702299440684059	CMakeFiles/Buffer.dir/artlib.c.obj	5c3fce31a180282
+133	271	6702299442022878	Buffer.exe	a5cf59f8b3e5485a
+2	98	6702300934659634	CMakeFiles/Buffer.dir/main.c.obj	bf5d6645bf3bc439
+11	129	6702300934972853	CMakeFiles/Buffer.dir/artlib.c.obj	5c3fce31a180282
+129	264	6702300936277224	Buffer.exe	a5cf59f8b3e5485a
+2	98	6702303600784682	CMakeFiles/Buffer.dir/artlib.c.obj	5c3fce31a180282
+99	225	6702303602034816	Buffer.exe	a5cf59f8b3e5485a
