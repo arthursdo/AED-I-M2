@@ -1,7 +1,6 @@
 #include "artlib.h"
 
 int debug=0;
-S;
 
 int cellsize(){
     return (sizeof(int)*2)+(sizeof(char*))+(sizeof(void*)*2);
