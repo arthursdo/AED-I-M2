@@ -37,4 +37,6 @@ int main() {
                 break;
         }
     }
+
+    S;
 }
