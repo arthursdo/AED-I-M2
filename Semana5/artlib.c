@@ -77,16 +77,17 @@ void AdicionarRegistro(void *agenda){
             agendaProximo=*agendaProximo+sizeof(void*);
         }
         *agendaProximo=aux;
-    }*/
+    }**/
 
-    /*
+
     void **agendaProximo;
     agendaProximo=agenda+sizeof(void*);
     while (*agendaProximo!=NULL){
         agendaProximo=*agendaProximo+sizeof(void*);
     }
-    *agendaProximo=aux;*/
+    *agendaProximo=aux;
 
+    /**
     void **agendaProximo,**temp,**ant=aux,*temp2;
     agendaProximo=agenda+sizeof(void*);
     debug++;
@@ -95,7 +96,7 @@ void AdicionarRegistro(void *agenda){
         agendaProximo=*agendaProximo+sizeof(void*);//proximo componente
         temp2=agendaProximo;
         temp=temp2+sizeof(void*);//+sizeof(void*);
-        if(Precedencia(*pnome,*temp)){
+        if(precedencia(*pnome, *temp)){
             *prox=*agendaProximo;
             ant=*ant;
             ant+=sizeof(void*);
@@ -106,7 +107,7 @@ void AdicionarRegistro(void *agenda){
         }
     }
     *agendaProximo=aux;
-
+    **/
 
     //num[0]++;
     //return agenda;
@@ -179,14 +180,32 @@ void Buscar(const void *agenda){
 
     free(str);
 }
-int Precedencia(const char *pala,const char *palb){
-    if((int)pala[0]<(int)palb[0]){
-        return 0;
-    }
-    if((int)pala[0]>(int)palb[0]){
+int precedencia(const char *pala, const char *palb){
+    if(pala[0]<palb[0]){
         return 1;
     }
-    if((int)pala[0]==(int)palb[0]){
-        return Precedencia(pala+sizeof(char),palb+sizeof(char));
+    if(pala[0]>palb[0]){
+        return 0;
     }
+    if(pala[0]==palb[0]){
+        return precedencia(pala + sizeof(char), palb + sizeof(char));
+    }
+}
+
+void *posicao(const char *nome,const void *agenda){
+
+    void **prox=agenda+sizeof(void*);
+    char **pnome=NULL;
+    void *aux;
+
+    while (*prox!=NULL){
+        prox=*prox+sizeof(void*);
+        aux=prox;
+        pnome=aux+sizeof(void*);
+        if(precedencia(nome, *pnome)){
+            return aux-sizeof(void*);
+        }
+    }
+
+    return *prox;
 }

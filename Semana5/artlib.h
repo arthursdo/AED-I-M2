@@ -11,6 +11,7 @@ int menu(void *buffer);
 void AdicionarRegistro(void *agenda);
 void Listar(void *buffer,const void *agenda);
 void Buscar(const void *agenda);
-int Precedencia(const char *pala,const char *palb);
+int precedencia(const char *pala, const char *palb);
+void* posicao(const char *nome,const void *agenda);
 
 #endif //SEMANA5_ARTLIB_H

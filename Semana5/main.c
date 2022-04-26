@@ -16,6 +16,8 @@ int main() {
     }
     int *p=pBuffer;
     p[0]=0;
+    char nome[30];
+    void *debug=NULL;
     while (1)
     {
         switch (menu(pBuffer))
@@ -33,6 +35,8 @@ int main() {
                 Listar(pBuffer,agenda);
                 break;
             case 5:
+                strcpy(nome,"Jerson");
+                debug=posicao(nome,agenda);
                 exit(0);
                 break;
         }
