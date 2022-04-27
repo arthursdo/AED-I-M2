@@ -8,6 +8,13 @@
 int main() {
     setbuf(stdout, 0);
     void *agenda= malloc(2*sizeof(void*));
+    if(agenda==NULL){
+        printf("\nERRO NA ALOCAÇÃO DE MEMORIA!\n");
+        exit(1);
+    }
+    void **aux=agenda+sizeof(void*);
+    *aux=NULL;
+
     void *pBuffer=NULL;
     pBuffer= malloc((2*sizeof(int))+(sizeof(char)*30));
     if(pBuffer==NULL){

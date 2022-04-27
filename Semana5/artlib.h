@@ -13,5 +13,6 @@ void Listar(void *buffer,const void *agenda);
 void Buscar(const void *agenda);
 int precedencia(const char *pala, const char *palb);
 void* posicao(const char *nome,const void *agenda);
+void incluir(void *aux,void **posi, void *agenda);
 
 #endif //SEMANA5_ARTLIB_H

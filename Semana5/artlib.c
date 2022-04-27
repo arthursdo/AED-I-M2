@@ -37,13 +37,14 @@ void AdicionarRegistro(void *agenda){
         exit(1);
     }
 
-    //int *num=buffer;
     //ponteiros entrada
     char **pnome=aux+(sizeof(void*)*2);
     int *leituraIdade=aux+(sizeof(void*)*2)+sizeof(char*);
     int *leituraTelefone=aux+(sizeof(void*)*2)+sizeof(char*)+sizeof(int);
     void **prox=aux+sizeof(void*);
+    void **ant=aux;
     *prox=NULL;
+    *ant=NULL;
 
     char *nome=malloc(sizeof(char)*30);
     if(nome==NULL){
@@ -67,6 +68,8 @@ void AdicionarRegistro(void *agenda){
     printf("\nInsira o Telefone: ");
     scanf("%d", leituraTelefone);
 
+    incluir(aux, posicao(*pnome,agenda),agenda);
+
     /**
     if(num[0]==0){
         agenda=aux;
@@ -79,13 +82,14 @@ void AdicionarRegistro(void *agenda){
         *agendaProximo=aux;
     }**/
 
-
+    /**
     void **agendaProximo;
     agendaProximo=agenda+sizeof(void*);
     while (*agendaProximo!=NULL){
         agendaProximo=*agendaProximo+sizeof(void*);
     }
     *agendaProximo=aux;
+    **/
 
     /**
     void **agendaProximo,**temp,**ant=aux,*temp2;
@@ -115,11 +119,6 @@ void AdicionarRegistro(void *agenda){
 void Listar(void *buffer,const void *agenda){
 
     int *num=agenda;
-    /**
-    if(num[0]==0){
-        printf("\nAgenda vazia\n");
-        return;
-    }**/
 
     void **agendaProximo=agenda+sizeof(void*);
     if(*agendaProximo==NULL){
@@ -203,9 +202,32 @@ void *posicao(const char *nome,const void *agenda){
         aux=prox;
         pnome=aux+sizeof(void*);
         if(precedencia(nome, *pnome)){
-            return aux-sizeof(void*);
+            return aux;
         }
     }
 
     return *prox;
+}
+
+void incluir(void *aux,void **posi, void *agenda){
+    void **test=agenda+sizeof(void*);
+
+    if(*test!=NULL){
+        void **auxAnt=aux;//Ponteiro para nodo anterior dentro de aux
+        *auxAnt=posi;//define o anterior do nodo atual para o nodo posi
+
+        void  **auxProx=aux+sizeof(void*);//Ponteiro para o proximo nodo dentro de aux
+
+        void *temp=posi;
+        void **posiProx=temp+sizeof(void*);
+
+        *auxProx=*posiProx;
+
+
+    } else{
+        void **ant=aux;
+        *ant=agenda;
+        void **temp=agenda+sizeof(void*);
+        *temp=aux;
+    }
 }
