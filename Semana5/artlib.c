@@ -67,15 +67,6 @@ void AdicionarRegistro(void *agenda){
     scanf("%d", leituraTelefone);
 
     incluir(aux, posicao(*pnome,agenda),agenda);
-
-    /**
-    void **agendaProximo;
-    agendaProximo=agenda+sizeof(void*);
-    while (*agendaProximo!=NULL){
-        agendaProximo=*agendaProximo+sizeof(void*);
-    }
-    *agendaProximo=aux;
-    **/
 }
 
 void Listar(void *buffer,const void *agenda){
