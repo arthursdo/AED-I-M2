@@ -33,7 +33,7 @@ int main() {
                 AdicionarRegistro(agenda);
                 break;
             case 2:
-                //RemoverRegistro(pBuffer);
+                RemoverRegistro(agenda);
                 break;
             case 3:
                 Buscar(agenda);
@@ -42,9 +42,7 @@ int main() {
                 Listar(pBuffer,agenda);
                 break;
             case 5:
-                strcpy(nome,"Jerson");
-                debug=posicao(nome,agenda);
-                exit(0);
+                exit(1);
                 break;
         }
     }

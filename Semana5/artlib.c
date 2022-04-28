@@ -1,7 +1,5 @@
 #include "artlib.h"
 
-int debug=0;
-
 int cellsize(){
     return (sizeof(int)*2)+(sizeof(char*))+(sizeof(void*)*2);
 }
@@ -71,18 +69,6 @@ void AdicionarRegistro(void *agenda){
     incluir(aux, posicao(*pnome,agenda),agenda);
 
     /**
-    if(num[0]==0){
-        agenda=aux;
-    } else{
-        void **agendaProximo;
-        agendaProximo=agenda+sizeof(void*);
-        while (*agendaProximo!=NULL){
-            agendaProximo=*agendaProximo+sizeof(void*);
-        }
-        *agendaProximo=aux;
-    }**/
-
-    /**
     void **agendaProximo;
     agendaProximo=agenda+sizeof(void*);
     while (*agendaProximo!=NULL){
@@ -90,32 +76,8 @@ void AdicionarRegistro(void *agenda){
     }
     *agendaProximo=aux;
     **/
-
-    /**
-    void **agendaProximo,**temp,**ant=aux,*temp2;
-    agendaProximo=agenda+sizeof(void*);
-    debug++;
-    while (*agendaProximo!=NULL){
-        *ant=*agendaProximo;//Componente atual
-        agendaProximo=*agendaProximo+sizeof(void*);//proximo componente
-        temp2=agendaProximo;
-        temp=temp2+sizeof(void*);//+sizeof(void*);
-        if(precedencia(*pnome, *temp)){
-            *prox=*agendaProximo;
-            ant=*ant;
-            ant+=sizeof(void*);
-            *ant=aux;
-            //agendaProximo=*agendaProximo;
-            *agendaProximo=aux;
-            return;
-        }
-    }
-    *agendaProximo=aux;
-    **/
-
-    //num[0]++;
-    //return agenda;
 }
+
 void Listar(void *buffer,const void *agenda){
 
     int *num=agenda;
@@ -179,6 +141,7 @@ void Buscar(const void *agenda){
 
     free(str);
 }
+
 int precedencia(const char *pala, const char *palb){
     if(pala[0]<palb[0]){
         return 1;
@@ -191,43 +154,119 @@ int precedencia(const char *pala, const char *palb){
     }
 }
 
-void *posicao(const char *nome,const void *agenda){
+void* posicao(const char *nome,const void *agenda){
 
-    void **prox=agenda+sizeof(void*);
-    char **pnome=NULL;
-    void *aux;
-
-    while (*prox!=NULL){
-        prox=*prox+sizeof(void*);
-        aux=prox;
-        pnome=aux+sizeof(void*);
-        if(precedencia(nome, *pnome)){
-            return aux;
-        }
-    }
-
-    return *prox;
-}
-
-void incluir(void *aux,void **posi, void *agenda){
     void **test=agenda+sizeof(void*);
+    void **aux;
+    void **prox=agenda+sizeof(void*);
+    void *temp;
 
     if(*test!=NULL){
-        void **auxAnt=aux;//Ponteiro para nodo anterior dentro de aux
-        *auxAnt=posi;//define o anterior do nodo atual para o nodo posi
+        char **pnome=NULL;
+        do{
+            prox=*prox+sizeof(void*);
+            temp=prox;
+            pnome=temp+sizeof(void*);
+            if(precedencia(nome, *pnome)){
+                temp=prox;
+                aux=temp-sizeof(void*);
+                return *aux;
+            }
+        } while (*prox!=NULL);
+    } else{
+        return NULL;
+    }
+    temp=prox;
+    return temp-sizeof(void*);
+}
 
-        void  **auxProx=aux+sizeof(void*);//Ponteiro para o proximo nodo dentro de aux
+void incluir(void *B, void *A, void *agenda){
+    //null primeira inclusão
+    //A -> nodo retornado(A)
+    //B -> nodo a ser incluido
+    //C -> nodo seguinte ao nodo A
 
-        void *temp=posi;
-        void **posiProx=temp+sizeof(void*);
+    if(A != NULL){
+        void **AProx=A+sizeof(void*); //pega proxima endereco do nodo anterior
+        void **BProx=B+sizeof(void*);//pega proximo endereco do nodo sendo incluido
 
-        *auxProx=*posiProx;
+        if(*AProx != NULL){
+            void **C=*AProx;
+            *AProx=B;//atribui nodo atual como proximo do anterior
+            *BProx=C;
+            *C=B;
+        }else{
+            *AProx=B;
+            *BProx=NULL;
+        }
 
+        void **BAnt=B;
+        *BAnt=A;
 
     } else{
-        void **ant=aux;
-        *ant=agenda;
+        void **BAnt=B;
+        *BAnt=agenda;
         void **temp=agenda+sizeof(void*);
-        *temp=aux;
+        *temp=B;
     }
+}
+
+void RemoverRegistro(void *agenda){
+    void **agendaProximo=agenda+sizeof(void*);
+    if(*agendaProximo==NULL){
+        printf("\nAgenda vazia\n");
+        return;
+    }
+
+    char *str=malloc(30*sizeof(char));
+    if(str==NULL){
+        printf("\nERRO DE MEMORIA\n");
+        return;
+    }
+
+    fflush(stdin);
+    printf("Nome a ser removido da lista\n");
+    scanf("%s",str);
+    void *aux;
+    char **nome;
+
+    while (*agendaProximo!=NULL){
+        agendaProximo=*agendaProximo+sizeof(void*);
+        aux=agendaProximo;
+        nome=aux+sizeof(void*);
+
+        if(!strcmp(str,*nome)){
+            aux = nome;
+            aux-=(sizeof(void*)*2);
+            void **A=aux;
+            aux=*A;
+            A=aux+sizeof(void*);
+            aux=nome;
+
+
+            aux-=sizeof(void*);
+            void **C=aux;
+            if(*C!=NULL){
+                C=*C;
+                *A=C;
+                aux=A;
+                A=aux+sizeof(void*);
+                *C=A;
+            } else{
+                *A=NULL;
+            }
+
+            aux=nome;
+            aux-=(sizeof(void*)*2);
+
+            free(*nome);
+            free(aux);
+
+            printf("Exlucao bem sucedida!\n");
+            return;
+        }
+    }
+    printf("Nome nao encontrado\n");
+
+    free(str);
 }
