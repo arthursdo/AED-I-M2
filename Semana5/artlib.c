@@ -125,6 +125,7 @@ void Buscar(const void *agenda){
             aux = idade;
             int *telefone = aux + sizeof(int);
             printf("\t%s\t%d\t%d\n", *nome, *idade, *telefone);
+            free(str);
             return;
         }
     }
@@ -252,6 +253,7 @@ void RemoverRegistro(void *agenda){
 
             free(*nome);
             free(aux);
+            free(str);
 
             printf("Exlucao bem sucedida!\n");
             return;

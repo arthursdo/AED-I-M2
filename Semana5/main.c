@@ -23,8 +23,7 @@ int main() {
     }
     int *p=pBuffer;
     p[0]=0;
-    char nome[30];
-    void *debug=NULL;
+
     while (1)
     {
         switch (menu(pBuffer))
