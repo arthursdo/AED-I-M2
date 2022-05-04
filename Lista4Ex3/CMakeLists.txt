@@ -3,4 +3,6 @@ project(Lista4Ex3 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Lista4Ex3 main.c)
+set (CMAKE_C_FLAGS "-m64 -static-libgcc -ggdb -g")
+
+add_executable(Lista4Ex3 main.c artlib.c artlib.h)

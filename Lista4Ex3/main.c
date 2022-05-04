@@ -1,6 +1,19 @@
-#include <stdio.h>
+#include "artlib.h"
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+
+    int nNodos=19;
+    Nodo *head=NULL;
+
+    srand(time(NULL));
+
+    printf("Quantos nodos a arvore deve ter:");
+    //scanf("%d",&nNodos);
+
+    head=gerar(nNodos,head);
+
+    //imprimir(head);
+    print2D(head);
+
+    printf("\nEh avl? %s", (EhArvoreArvl(head))?"Sim":"Não");
 }
