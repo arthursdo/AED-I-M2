@@ -61,6 +61,12 @@ build CMakeFiles/Lista4Ex3.dir/artlib.c.o: C_COMPILER__Lista4Ex3_Debug /home/art
   OBJECT_DIR = CMakeFiles/Lista4Ex3.dir
   OBJECT_FILE_DIR = CMakeFiles/Lista4Ex3.dir
 
+build CMakeFiles/Lista4Ex3.dir/naofiz.c.o: C_COMPILER__Lista4Ex3_Debug /home/arthur/Área$ de$ Trabalho/AED-I-M2/Lista4Ex3/naofiz.c || cmake_object_order_depends_target_Lista4Ex3
+  DEP_FILE = CMakeFiles/Lista4Ex3.dir/naofiz.c.o.d
+  FLAGS = -m64 -static-libgcc -ggdb -g -g -std=gnu99
+  OBJECT_DIR = CMakeFiles/Lista4Ex3.dir
+  OBJECT_FILE_DIR = CMakeFiles/Lista4Ex3.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lista4Ex3
@@ -69,7 +75,7 @@ build CMakeFiles/Lista4Ex3.dir/artlib.c.o: C_COMPILER__Lista4Ex3_Debug /home/art
 #############################################
 # Link the executable Lista4Ex3
 
-build Lista4Ex3: C_EXECUTABLE_LINKER__Lista4Ex3_Debug CMakeFiles/Lista4Ex3.dir/main.c.o CMakeFiles/Lista4Ex3.dir/artlib.c.o
+build Lista4Ex3: C_EXECUTABLE_LINKER__Lista4Ex3_Debug CMakeFiles/Lista4Ex3.dir/main.c.o CMakeFiles/Lista4Ex3.dir/artlib.c.o CMakeFiles/Lista4Ex3.dir/naofiz.c.o
   FLAGS = -m64 -static-libgcc -ggdb -g -g
   OBJECT_DIR = CMakeFiles/Lista4Ex3.dir
   POST_BUILD = :

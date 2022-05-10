@@ -17,13 +17,17 @@ typedef struct nod{
     struct nod *dir;
 }Nodo;
 
-Nodo *inserir(int valor, Nodo *head, int altura);
+Nodo *inserir(int valor, Nodo *head);
 Nodo *gerar(int nNodos, Nodo *head);
-Nodo *criarNodo(int valor, Nodo *head, int altura);
+Nodo *criarNodo(int valor, Nodo *head);
 int FB(Nodo *head);
 void imprimir(Nodo *head);
-void print2DUtil(Nodo *head, int space);
-void print2D(Nodo *head);
-int EhArvoreArvl(Nodo *head);
+Nodo * rotacaoD(Nodo *head);
+Nodo * rotacaoE(Nodo *head);
+Nodo * rotacaoED(Nodo *head);
+Nodo * rotacaoDE(Nodo *head);
+int getValor(Nodo *head);
+
+Nodo *Teste(Nodo *head, int *V, int nNodos);
 
 #endif //LISTA4EX3_ARTLIB_H
