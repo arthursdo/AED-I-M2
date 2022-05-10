@@ -20,10 +20,9 @@ typedef struct nod{
 Nodo *inserir(int valor, Nodo *head);
 Nodo *gerar(int nNodos, Nodo *head);
 Nodo *criarNodo(int valor, Nodo *head);
-int FB(Nodo *head);
-void imprimir(Nodo *head);
 Nodo * rotacaoD(Nodo *head);
 Nodo * rotacaoE(Nodo *head);
+int FB(Nodo *head);
 int getValor(Nodo *head);
 
 Nodo *Teste(Nodo *head, int *V, int nNodos);

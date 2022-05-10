@@ -10,6 +10,5 @@
 void print2DUtil(Nodo *head, int space);
 void print2D(Nodo *head);
 int EhArvoreArvl(Nodo *head);
-void clear_screen();
 
 #endif //LISTA4EX3_NAOFIZ_H

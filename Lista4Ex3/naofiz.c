@@ -6,8 +6,8 @@
 
 /**
 ************************************
-***DESSA LINHA PARA BAIXO NENHUMA***
-***FOI ESCRITA POR MIM**************
+***DESSA LINHA PARA BAIXO NADA******
+***FOI ESCRITO POR MIM**************
 ************************************
 **/
 
@@ -30,7 +30,7 @@ void print2DUtil(Nodo *head, int space) {
     printf("\n");
     for (int i = COUNT; i < space; i++)
         printf(" ");
-    printf("%d-(%d)\n", head->valor,head->altura);
+    printf("%d-(%d)\n", head->valor, head->altura);
 
     // Process esq child
     print2DUtil(head->esq, space);
@@ -58,13 +58,3 @@ int EhArvoreArvl(Nodo *head) {
     else
         return 1;
 }
-/**
-void clear_screen()
-{
-    char buf[1024];
-    char *str;
-
-    tgetent(buf, getenv("TERM"));
-    str = tgetstr("cl", NULL);
-    fputs(str, stdout);
-}**/
