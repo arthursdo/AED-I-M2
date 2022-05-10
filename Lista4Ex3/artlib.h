@@ -24,8 +24,6 @@ int FB(Nodo *head);
 void imprimir(Nodo *head);
 Nodo * rotacaoD(Nodo *head);
 Nodo * rotacaoE(Nodo *head);
-Nodo * rotacaoED(Nodo *head);
-Nodo * rotacaoDE(Nodo *head);
 int getValor(Nodo *head);
 
 Nodo *Teste(Nodo *head, int *V, int nNodos);
