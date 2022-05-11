@@ -21,7 +21,7 @@ int main() {
     //head= Teste(NULL, teste, 6);
 
     //imprimir(head);
-    printf("A impressao acontece da esquerda para a direita");
+    printf("\nA impressao acontece da esquerda para a direita");
     print2D(head);
 
     printf("\nEh avl? %s", (EhArvoreArvl(head)) ? "Sim" : "Não");

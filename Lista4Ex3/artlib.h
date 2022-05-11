@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 #define COUNT 10
-#define ValorMaximo 100
+#define ValorMaximo 3
 
 typedef struct nod{
     int altura;
