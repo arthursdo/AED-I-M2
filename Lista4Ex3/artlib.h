@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 #define COUNT 10
-#define ValorMaximo 3
+#define ValorMaximo 100
 
 typedef struct nod{
     int altura;
@@ -24,6 +24,8 @@ Nodo * rotacaoD(Nodo *head);
 Nodo * rotacaoE(Nodo *head);
 int FB(Nodo *head);
 int getValor(Nodo *head);
+int altura(Nodo *head);
+int maior(int a, int b);
 
 Nodo *Teste(Nodo *head, int *V, int nNodos);
 

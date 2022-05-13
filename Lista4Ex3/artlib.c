@@ -13,7 +13,7 @@ Nodo *Teste(Nodo *head, int *V, int nNodos) {
 
 Nodo *gerar(int nNodos, Nodo *head) {
     for (int i = 0; i < nNodos; ++i) {
-        head = inserir(rand() % ValorMaximo, head);
+        head = inserir((rand() % ValorMaximo) + 1, head);
     }
     return head;
 }
@@ -27,13 +27,15 @@ Nodo *inserir(int valor, Nodo *head) {
         } else {
             if (valor > head->valor) {//direita
                 head->dir = inserir(valor, head->dir);
-                head->altura = head->dir->altura + 1;
+                //head->altura = head->dir->altura + 1;
             } else {//esquerda
                 //caso getValor seja menor
                 head->esq = inserir(valor, head->esq);
-                head->altura = head->esq->altura + 1;
+                //head->altura = head->esq->altura + 1;
             }
         }
+
+        head->altura = altura(head);
 
         //inclusão concluida
         int fb = FB(head);
@@ -86,15 +88,16 @@ int FB(Nodo *head) {
 Nodo *rotacaoD(Nodo *head) {
     if (head->esq != NULL) {
         Nodo *pEsc = head->esq;
-        Nodo *temp = pEsc->dir;
+        Nodo *pEDir = pEsc->dir;
 
         //rotacao
         pEsc->dir = head;
-        head->esq = temp;
+        head->esq = pEDir;
 
         //atualiza altura
-        head->altura -= 2;
-        pEsc->altura = head->altura + 1;
+        head->altura = altura(head);
+        pEsc->altura = altura(pEsc);
+
         return pEsc;
     }
     return head;
@@ -104,15 +107,15 @@ Nodo *rotacaoE(Nodo *head) {
     if (head->dir != NULL) {
 
         Nodo *pDir = head->dir;
-        Nodo *temp = pDir->esq;
+        Nodo *pDEsq = pDir->esq;
 
         //rotacao
         pDir->esq = head;
-        head->dir = temp;
+        head->dir = pDEsq;
 
         //atualiza altura
-        head->altura -= 2;
-        pDir->altura = head->altura + 1;
+        head->altura = altura(head);
+        pDir->altura = altura(pDir);
 
         return pDir;
     }
@@ -121,4 +124,17 @@ Nodo *rotacaoE(Nodo *head) {
 
 int getValor(Nodo *head) {
     return (head != NULL) ? head->valor : 0;
+}
+
+int altura(Nodo *head) {
+
+    if (head == NULL) {
+        return 0;
+    }
+
+    return 1 + maior(altura(head->esq), altura(head->dir));
+}
+
+int maior(int a, int b) {
+    return (a > b) ? a : b;
 }
