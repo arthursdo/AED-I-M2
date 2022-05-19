@@ -1,0 +1,4 @@
+/home/arthur/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5591.52/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/arthur/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5591.52/bin/ninja/linux/ninja -G Ninja -S "/home/arthur/Área de Trabalho/AED-I-M2/Lista5" -B "/home/arthur/Área de Trabalho/AED-I-M2/Lista5/cmake-build-debug"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/arthur/Área de Trabalho/AED-I-M2/Lista5/cmake-build-debug

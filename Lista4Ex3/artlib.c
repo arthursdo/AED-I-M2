@@ -50,7 +50,7 @@ Nodo *inserir(int valor, Nodo *head) {
                     return rotacaoE(head);
                 } else if (getValor(head) > getValor(head->esq)) {
                     //Simples a esquerda
-                    return head = rotacaoE(head);
+                    return rotacaoE(head);
                 }
             } else if (fb > 1) {
                 //fb 1 Direita
