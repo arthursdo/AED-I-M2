@@ -8,19 +8,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 #define max 100
 
 int *gerar(int s, int opt);
+
 int *PopularRdn(int *v, int s);
+
 int *PopularSqc(int *v, int s);
+
 int *PopularRvc(int *v, int s);
+
 int *embaralhar(int *v, int s);
+
 int imprimirVetor(int *v, int s);
 
-
-
+void troca(int *a, int *b);
 
 
 #endif //LISTA5_ES_H

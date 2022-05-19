@@ -55,8 +55,14 @@ build CMakeFiles/Lista5.dir/main.c.o: C_COMPILER__Lista5_Debug /home/arthur/Áre
   OBJECT_DIR = CMakeFiles/Lista5.dir
   OBJECT_FILE_DIR = CMakeFiles/Lista5.dir
 
-build CMakeFiles/Lista5.dir/artlib.c.o: C_COMPILER__Lista5_Debug /home/arthur/Área$ de$ Trabalho/AED-I-M2/Lista5/artlib.c || cmake_object_order_depends_target_Lista5
-  DEP_FILE = CMakeFiles/Lista5.dir/artlib.c.o.d
+build CMakeFiles/Lista5.dir/ES.c.o: C_COMPILER__Lista5_Debug /home/arthur/Área$ de$ Trabalho/AED-I-M2/Lista5/ES.c || cmake_object_order_depends_target_Lista5
+  DEP_FILE = CMakeFiles/Lista5.dir/ES.c.o.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles/Lista5.dir
+  OBJECT_FILE_DIR = CMakeFiles/Lista5.dir
+
+build CMakeFiles/Lista5.dir/sort.c.o: C_COMPILER__Lista5_Debug /home/arthur/Área$ de$ Trabalho/AED-I-M2/Lista5/sort.c || cmake_object_order_depends_target_Lista5
+  DEP_FILE = CMakeFiles/Lista5.dir/sort.c.o.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles/Lista5.dir
   OBJECT_FILE_DIR = CMakeFiles/Lista5.dir
@@ -69,7 +75,7 @@ build CMakeFiles/Lista5.dir/artlib.c.o: C_COMPILER__Lista5_Debug /home/arthur/Á
 #############################################
 # Link the executable Lista5
 
-build Lista5: C_EXECUTABLE_LINKER__Lista5_Debug CMakeFiles/Lista5.dir/main.c.o CMakeFiles/Lista5.dir/artlib.c.o
+build Lista5: C_EXECUTABLE_LINKER__Lista5_Debug CMakeFiles/Lista5.dir/main.c.o CMakeFiles/Lista5.dir/ES.c.o CMakeFiles/Lista5.dir/sort.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Lista5.dir
   POST_BUILD = :
