@@ -13,18 +13,22 @@ int main() {
     int tamanho = 10;
     int *v;
 
+    medir();
     //solicitar tamanho e tal
-
+    /**
     v = gerar(tamanho, GMOD);
 
     printf("Vetor não ordenado:\n");
     imprimirVetor(v, tamanho);
 
-    v= merge(v,tamanho);
+    v= insertion(v,tamanho);
+
+    //
 
 
     printf("Vetor ordenado:\n");
     imprimirVetor(v, tamanho);
 
     return 0;
+     **/
 }

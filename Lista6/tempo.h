@@ -8,8 +8,8 @@
 #include "sort.h"
 #include "ES.h"
 
-#define NTESTE 100
-#define TESTE_TAM 100
+#define QTD_TESTES 10//Numero de vetores
+#define TAMANHO_VET 5//tamanho dos vetores
 
 void medir();
 
