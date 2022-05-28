@@ -1,3 +1,0 @@
-/home/arthur/Área de Trabalho/AED-I-M2/Lista5/cmake-build-debug/CMakeFiles/Lista5.dir
-/home/arthur/Área de Trabalho/AED-I-M2/Lista5/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/arthur/Área de Trabalho/AED-I-M2/Lista5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
