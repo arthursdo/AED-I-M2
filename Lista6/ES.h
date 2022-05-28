@@ -11,7 +11,7 @@
 #include <string.h>
 #include <time.h>
 
-#define ALGO 3//Quantidade de algoritimos implementados;
+#define IMPLEMENTADOS 2//Quantidade de algoritimos implementados;
 #define VALOR_MAXIMO 100 //valor maximo a ser gerado nos numeros aleatorios
 #define GMOD 4
 //GMOD

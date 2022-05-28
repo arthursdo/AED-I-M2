@@ -8,8 +8,11 @@
 #include "ES.h"
 
 int *insertion(int *v, int s);
+
 int *selection(int *v, int s);
+
 int *merge(int *v, int s);
+
 int *merge_sorte(int *v, int s);
 
 
