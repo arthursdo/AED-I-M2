@@ -148,7 +148,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "cmake-build-debug/define.h",
+			"path" : "define.h",
 			"sourceGroupIndex" : 1
 		}
 	],

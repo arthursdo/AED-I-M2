@@ -35,18 +35,18 @@ int *escolha(int esc,int *v){
             return selection(v, TAMANHO_VET);
             break;
         case 2:
-            return merge(v, TAMANHO_VET);
+            return mergeSorte(v, TAMANHO_VET);
             break;
     }
 }
 
 double calcular(long *tempos){
     double media;
-    long soma=0;
+    long long soma=0;
 
     for (int i = 0; i < QTD_TESTES; ++i) {
         soma+=tempos[i];
     }
-    media= soma / QTD_TESTES;
+    media= (long long)soma / (int)QTD_TESTES;
     return media;
 }

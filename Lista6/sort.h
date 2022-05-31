@@ -11,9 +11,10 @@ int *insertion(int *v, int s);
 
 int *selection(int *v, int s);
 
-int *merge(int *v, int s);
+int *merge(int *esq, int *dir, int s);
 
-int *merge_sorte(int *v, int s);
+int *mergeSorte(int *v, int s);
 
+int *quickSort(int *v,int inicio, int fim);
 
 #endif //LISTA5_SORT_H
