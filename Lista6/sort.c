@@ -66,7 +66,7 @@ int *merge(int *esq, int *dir, int s) {
 }
 
 int *mergeSorte(int *v, int s) {
-    if (s==1) {
+    if (s == 1) {
         return v;
     }
 
@@ -81,20 +81,37 @@ int *mergeSorte(int *v, int s) {
     if (dir == NULL)
         exit(18);
 
-    int *s1=esq,*s2=dir;
+    int *s1 = esq, *s2 = dir;
     esq = mergeSorte(v, t1);
     dir = mergeSorte(&v[t1], t2);
 
     free(s1);
     free(s2);
 
-    v=merge(esq, dir, t1 + t2);
+    v = merge(esq, dir, t1 + t2);
 
     return v;
 }
 
-int *quickSort(int *v,int inicio, int fim){
-    if(fim==1){
-        return v;
+int *quickSort(int *v, int s) {
+
+    int pivo = rand() % s,i=0,j=s;
+    while (i<=j) {
+        while (v[i]<v[pivo]&& i < s){
+            i++;
+        }
+        while (v[j]>v[pivo]&&j>0){
+            j--;
+        }
+        if(i<=j){
+            troca(&v[i++],&v[j--]);
+        }
     }
+    if(j>0){
+        quickSort(v, j + 1);
+    }
+    if(i < s){
+        quickSort(&v[i], s-i);
+    }
+    return v;
 }

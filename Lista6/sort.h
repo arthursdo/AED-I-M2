@@ -15,6 +15,6 @@ int *merge(int *esq, int *dir, int s);
 
 int *mergeSorte(int *v, int s);
 
-int *quickSort(int *v,int inicio, int fim);
+int *quickSort(int *v, int s);
 
 #endif //LISTA5_SORT_H

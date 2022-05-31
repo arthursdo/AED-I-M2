@@ -20,9 +20,15 @@ void medir(){
         }
         medias[i]= calcular(tempos[i]);
     }
+    int mr=0;
+    for (int i = 0; i < IMPLEMENTADOS-1; ++i) {
+        if(medias[i+1]<medias[i]){
+            mr=i+1;
+        }
+    }
 
     for (int i = 0; i < IMPLEMENTADOS; ++i) {
-        printf("%.10lf\n",medias[i]*1e-9);
+        printf("%.10lf %c\n",medias[i]*1e-9,(i==mr)?'<':' ');
     }
 }
 
@@ -36,6 +42,9 @@ int *escolha(int esc,int *v){
             break;
         case 2:
             return mergeSorte(v, TAMANHO_VET);
+            break;
+        case 3:
+            return quickSort(v, TAMANHO_VET);
             break;
     }
 }
