@@ -10,15 +10,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "define.h"
 
-#define IMPLEMENTADOS 2//Quantidade de algoritimos implementados;
-#define VALOR_MAXIMO 50 //valor maximo a ser gerado nos numeros aleatorios
-#define GMOD 4
-//GMOD
-//1-Aleatorio
-//2-Sequencial crescente
-//3-Sequencial decresente
-//4-Sequencial crescente embaralhado
+
 
 
 int *gerar(int s, int opt);

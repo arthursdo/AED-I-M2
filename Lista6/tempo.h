@@ -8,13 +8,11 @@
 #include "sort.h"
 #include "ES.h"
 
-#define QTD_TESTES 10//Numero de vetores
-#define TAMANHO_VET 5//tamanho dos vetores
 
 void medir();
 
 int *escolha(int esc, int *v);
 
-double *calcular(void *_tempos);
+double calcular(long *tempos);
 
 #endif //LISTA5_TEMPO_H
