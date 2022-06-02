@@ -85,10 +85,10 @@ int *mergeSorte(int *v, int s) {
     esq = mergeSorte(v, t1);
     dir = mergeSorte(&v[t1], t2);
 
+    v = merge(esq, dir, t1 + t2);
+
     free(s1);
     free(s2);
-
-    v = merge(esq, dir, t1 + t2);
 
     return v;
 }

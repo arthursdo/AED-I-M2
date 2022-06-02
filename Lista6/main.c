@@ -5,12 +5,16 @@
 int main() {
     srand(time(NULL));
 
-    if (0) {//solicitar tamanho e tal
+    if (0) {
+        int opt = 3;
+        // 0-Insertion/1-Selection/2-Merge/3-Quick
+
         int *v = gerar(TAMANHO_VET, GMOD);
         printf("Vetor não ordenado:\n");
         imprimirVetor(v, TAMANHO_VET);
 
-        v = quickSort(v, TAMANHO_VET);
+        v = escolha(opt, v);
+
         printf("Vetor ordenado:\n");
         imprimirVetor(v, TAMANHO_VET);
     } else {
